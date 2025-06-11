@@ -1,0 +1,42 @@
+.nova/
+# Системные файлы macOS и IDE
+.DS_Store
+/.idea
+/.vscode
+/.fleet
+/.nova
+
+
+# Зависимости
+/node_modules
+/vendor
+
+# Laravel кэш и временные файлы
+/bootstrap/cache/
+/storage/framework/
+/storage/logs/
+/storage/app/public/
+
+# Сгенерированные файлы сборки
+/public/build
+/public/hot
+
+# Файл окружения (содержит пароли и ключи!)
+.env
+.env.backup
+.env.production
+
+# Логи и прочее
+npm-debug.log
+yarn-error.log
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+
+# Загружаемые пользователем файлы
+/public/storage
+/storage/*.key
+
+# Не добавлять наши выкройки в репозиторий
+/storage/app/vfiles/

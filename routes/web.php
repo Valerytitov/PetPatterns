@@ -1,0 +1,60 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+Auth::routes();
+
+/* Control */
+Route::get('/control', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
+
+Route::get('/control/orders', [App\Http\Controllers\AdminOrderController::class, 'index'])->name('admin.orders');
+Route::get('/control/orders/form/{id}', [App\Http\Controllers\AdminOrderController::class, 'form'])->name('admin.orders.form');
+Route::post('/control/orders/form/{id}', [App\Http\Controllers\AdminOrderController::class, 'form'])->name('admin.orders.form');
+
+Route::get('/control/vfiles', [App\Http\Controllers\AdminVfileController::class, 'index'])->name('admin.vfiles');
+Route::get('/control/vfiles/form/{id}', [App\Http\Controllers\AdminVfileController::class, 'form'])->name('admin.vfiles.form');
+Route::post('/control/vfiles/form/{id}', [App\Http\Controllers\AdminVfileController::class, 'form'])->name('admin.vfiles.form');
+Route::get('/control/vfiles/props/{id}', [App\Http\Controllers\AdminVfileController::class, 'props'])->name('admin.vfiles.props');
+Route::post('/control/vfiles/props/{id}', [App\Http\Controllers\AdminVfileController::class, 'props'])->name('admin.vfiles.props');
+
+Route::get('/control/posts', [App\Http\Controllers\AdminPostController::class, 'index'])->name('admin.posts');
+Route::get('/control/posts/form/{id}', [App\Http\Controllers\AdminPostController::class, 'form'])->name('admin.posts.form');
+Route::post('/control/posts/form/{id}', [App\Http\Controllers\AdminPostController::class, 'form'])->name('admin.posts.form');
+
+Route::get('/control/reviews', [App\Http\Controllers\AdminReviewController::class, 'index'])->name('admin.reviews');
+Route::get('/control/reviews/form/{id}', [App\Http\Controllers\AdminReviewController::class, 'form'])->name('admin.reviews.form');
+Route::post('/control/reviews/form/{id}', [App\Http\Controllers\AdminReviewController::class, 'form'])->name('admin.reviews.form');
+
+Route::get('/control/delete/{type}/{id}', [App\Http\Controllers\AdminController::class, 'delete'])->name('admin.delete');
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/payment/test', [App\Http\Controllers\PaymentController::class, 'test'])->name('payment.test');
+Route::get('/payment/result/{status}', [App\Http\Controllers\PaymentController::class, 'result_page'])->name('payment.result');
+Route::post('/payment/result', [App\Http\Controllers\PaymentController::class, 'transaction'])->name('payment.result');
+
+Route::get('/constructor', [App\Http\Controllers\HomeController::class, 'constructor'])->name('constructor');
+Route::get('/constructor/{id}', [App\Http\Controllers\HomeController::class, 'constructor_use'])->name('constructor.use');
+
+Route::get('/shop', [App\Http\Controllers\ShopController::class, 'index'])->name('shop');
+Route::post('/order', [App\Http\Controllers\ShopController::class, 'order'])->name('shop.order');
+
+Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index'])->name('blog');
+Route::get('/blog/{slug}', [App\Http\Controllers\BlogController::class, 'single'])->name('blog.single');
+
+Route::get('/{slug}', [App\Http\Controllers\PageController::class, 'index'])->name('page');
+
+// Маршрут для отображения страницы конкретной выкройки
+Route::get('/patterns/{vfile:slug}', [\App\Http\Controllers\VfileController::class, 'show'])->name('vfiles.show');
+Route::post('/patterns/{vfile:slug}/generate', [\App\Http\Controllers\VfileController::class, 'generate'])->name('vfiles.generate');
