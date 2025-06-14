@@ -1,0 +1,9 @@
+[2025.06.14 15:34:49:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(538)] void VApplication::BeginLogging(): v.application: Log file ValentinaTeam/valentina-pid135.log was locked.
+[2025.06.14 15:34:49:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(566)] static void VApplication::ClearOldLogs(): v.application: There are no old logs.
+[2025.06.14 15:34:49:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(609)] void VApplication::InitOptions(): default: Version: "0.7.52.0"
+[2025.06.14 15:34:49:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(610)] void VApplication::InitOptions(): default: Build revision: Git:9429be3e0
+[2025.06.14 15:34:49:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(611)] void VApplication::InitOptions(): default: "Based on Qt 5.15.8 (GCC 9.4.0, 64 bit)"
+[2025.06.14 15:34:49:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(612)] void VApplication::InitOptions(): default: Built on Jun 13 2025 at 22:39:56
+[2025.06.14 15:34:49:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(613)] void VApplication::InitOptions(): default: Command-line arguments: ("/usr/local/bin/valentina", "--help")
+[2025.06.14 15:34:49:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(614)] void VApplication::InitOptions(): default: Process ID: 135
+[2025.06.14 15:34:49:DEBUG:../../../../src/libs/vmisc/vabstractapplication.cpp(245)] void VAbstractApplication::LoadTranslation(const QString&): default: Default locale

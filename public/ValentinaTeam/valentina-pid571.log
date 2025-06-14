@@ -1,0 +1,39 @@
+[2025.06.14 17:11:19:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(538)] void VApplication::BeginLogging(): v.application: Log file ValentinaTeam/valentina-pid571.log was locked.
+[2025.06.14 17:11:19:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(566)] static void VApplication::ClearOldLogs(): v.application: There are no old logs.
+[2025.06.14 17:11:19:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(609)] void VApplication::InitOptions(): default: Version: "0.7.52.0"
+[2025.06.14 17:11:19:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(610)] void VApplication::InitOptions(): default: Build revision: Git:9429be3e0
+[2025.06.14 17:11:19:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(611)] void VApplication::InitOptions(): default: "Based on Qt 5.15.8 (GCC 9.4.0, 64 bit)"
+[2025.06.14 17:11:19:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(612)] void VApplication::InitOptions(): default: Built on Jun 13 2025 at 22:39:56
+[2025.06.14 17:11:19:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(613)] void VApplication::InitOptions(): default: Command-line arguments: ("/usr/local/bin/valentina", "--format", "1", "--basename", "pattern_684dad37dfcfa", "--mfile", "/var/www/storage/app/public/temp/temp_measures_684dad37dd1aa.vit", "--destination", "/var/www/storage/app/public/generated_pdfs", "/var/www/storage/app/public/vfiles/val/6vPyQNIDEtkEGFKKfLDsBsYeA07C0IGnt41ReCs9.xml")
+[2025.06.14 17:11:19:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(614)] void VApplication::InitOptions(): default: Process ID: 571
+[2025.06.14 17:11:19:DEBUG:../../../../src/libs/vmisc/vabstractapplication.cpp(245)] void VAbstractApplication::LoadTranslation(const QString&): default: Default locale
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5548)] void MainWindow::InitDocksContain(): v.mainwindow: Initialization property browser.
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5554)] void MainWindow::InitDocksContain(): v.mainwindow: Initialization groups dock.
+[2025.06.14 17:11:20:DEBUG:../../../../src/libs/ifc/xml/vabstractpattern.cpp(2584)] QMap<unsigned int, VGroupData> VAbstractPattern::GetGroups(const QString&): default: Can't get tag Groups.
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5716)] void MainWindow::InitAutoSave(): v.mainwindow: Autosaving each 1 minutes.
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5144)] void MainWindow::ReadSettings(): v.mainwindow: Reading settings.
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5107)] void MainWindow::setCurrentFile(const QString&): v.mainwindow: Set current name to ""
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5771)] bool MainWindow::LoadPattern(QString, const QString&): v.mainwindow: Loading new file /var/www/storage/app/public/vfiles/val/6vPyQNIDEtkEGFKKfLDsBsYeA07C0IGnt41ReCs9.xml.
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5856)] bool MainWindow::LoadPattern(QString, const QString&): v.mainwindow: Loking file
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5861)] bool MainWindow::LoadPattern(QString, const QString&): v.mainwindow: Pattern file /var/www/storage/app/public/vfiles/val/6vPyQNIDEtkEGFKKfLDsBsYeA07C0IGnt41ReCs9.xml was locked.
+[2025.06.14 17:11:20:DEBUG:../../../../src/libs/ifc/xml/vabstractconverter.cpp(226)] void VAbstractConverter::ValidateXML(const QString&) const: v.xml: Validation xml file /tmp/Valentina.DQHlZj.
+[2025.06.14 17:11:20:DEBUG:../../../../src/libs/ifc/xml/vabstractconverter.cpp(253)] void VAbstractConverter::ValidateXML(const QString&) const: v.xml: Schema loaded.
+[2025.06.14 17:11:20:CRITICAL:../../../../src/app/valentina/mainwindowsnogui.cpp(1365)] QSharedPointer<VMeasurements> MainWindowsNoGUI::OpenMeasurementFile(const QString&) const: v.mainnoguiwindow: File error.
+
+Exception: Measurement file has unknown format.
+
+
+[2025.06.14 17:11:20:CRITICAL:../../../../src/app/valentina/mainwindow.cpp(5940)] bool MainWindow::LoadPattern(QString, const QString&): v.mainwindow: The measurements file '/var/www/storage/app/public/temp/temp_measures_684dad37dd1aa.vit' could not be found or provides not enough information.
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/mainwindow.cpp(3976)] void MainWindow::Clear(): v.mainwindow: Reseting main window.
+[2025.06.14 17:11:20:WARNING:(0)] : default: Could not remove our own lock file "/var/www/storage/app/public/vfiles/val/.6vPyQNIDEtkEGFKKfLDsBsYeA07C0IGnt41ReCs9.xml.lock" maybe permissions changed meanwhile?
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/mainwindow.cpp(3978)] void MainWindow::Clear(): v.mainwindow: Unlocked pattern file.
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/mainwindow.cpp(3411)] void MainWindow::ActionDraw(bool): v.mainwindow: Show draw scene
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/mainwindow.cpp(3980)] void MainWindow::Clear(): v.mainwindow: Returned to Draw mode.
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5107)] void MainWindow::setCurrentFile(const QString&): v.mainwindow: Set current name to ""
+[2025.06.14 17:11:20:DEBUG:../../../../src/libs/vpatterndb/vcontainer.cpp(376)] void VContainer::Clear(): v.container: Clearing container data.
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/mainwindow.cpp(3983)] void MainWindow::Clear(): v.mainwindow: Clearing pattern.
+[2025.06.14 17:11:20:DEBUG:../../../../src/libs/ifc/xml/vabstractpattern.cpp(2584)] QMap<unsigned int, VGroupData> VAbstractPattern::GetGroups(const QString&): default: Can't get tag Groups.
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/mainwindow.cpp(3993)] void MainWindow::Clear(): v.mainwindow: Clearing scenes.
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/mainwindow.cpp(3091)] void MainWindow::CancelTool(): v.mainwindow: Canceling tool.
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/mainwindow.cpp(3097)] void MainWindow::CancelTool(): v.mainwindow: Dialog closed.
+[2025.06.14 17:11:20:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(337)] virtual VApplication::~VApplication(): v.application: Application closing.

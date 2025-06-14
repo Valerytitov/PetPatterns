@@ -16,11 +16,11 @@
 				<div class="grid grid_items">
 					@foreach ($products as $product)
 						<div class="grid_item">
-							<a href="{{ route('blog.single', $product->slug) }}" title="{{ $product->title }}">
+							<a href="{{ route('vfiles.show', $product->slug) }}" title="{{ $product->title }}">
 								<div class="item_img" style="background-image: url({{ Storage::url($product->image) }});"></div>
 							</a>
 							<div class="item_info">
-								<a href="{{ route('blog.single', $product->slug) }}" title="{{ $product->title }}" class="post_title">{{ $product->title }}</a>
+								<a href="{{ route('vfiles.show', $product->slug) }}" title="{{ $product->title }}" class="post_title">{{ $product->title }}</a>
 								<div class="item_short">{!! $product->short !!}</div>
 								<div class="item_price">
 									{{ number_format($product->price, 2, '.', '') }} &#8381;

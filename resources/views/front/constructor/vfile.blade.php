@@ -18,13 +18,13 @@
 							<div class="cgroup">
 								@foreach ($props[$a] as $prop)
 									<div class="form_group">
-										<label for="p_{{ $prop->id }}">
-											{{ $prop->label }}
-											@if ($prop->hint)
-												<a href="#" title="{{ $prop->hint }}" class="hint">?</a>
+										<label for="p_{{ $prop['id'] }}">
+											{{ $prop['label'] }}
+											@if ($prop['hint'])
+												<a href="#" title="{{ $prop['hint'] }}" class="hint">?</a>
 											@endif
 										</label>
-										<input id="p_{{ $prop->id }}" type="text" name="measurements[{{ $prop->name }}]" data-default="{{ $prop->default }}" value="{{ $prop->default }}" class="vfile_prop" />
+										<input id="p_{{ $prop['id'] }}" type="text" name="measurements[{{ $prop['key'] }}]" data-default="{{ $prop['default'] }}" value="{{ $prop['default'] }}" class="vfile_prop" />
 									</div>
 								@endforeach
 							</div>

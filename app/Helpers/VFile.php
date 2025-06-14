@@ -47,13 +47,11 @@ class VFile {
 	
 	static function buildProps($data) {
 
-		$data = json_decode($data);
-		
 		$props = [];
 		
-		foreach ($data->data as $prop) {
+		foreach ($data['data'] as $prop) {
 
-			$this_prop = Prop::getByKey($prop->key);
+			$this_prop = Prop::getByKey($prop['key']);
 			if (!$this_prop) {
 				continue;
 			}
@@ -61,10 +59,10 @@ class VFile {
 			$props[$this_prop->id] = [
 			
 				'id' => $this_prop->id,
-				'key' => $prop->key,
+				'key' => $prop['key'],
 				'label' => $this_prop->prop_title,
 				'hint' => $this_prop->prop_hint,
-				'default' => $prop->default,
+				'default' => $prop['default'],
 			
 			];
 			

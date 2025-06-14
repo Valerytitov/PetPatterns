@@ -17,7 +17,16 @@ class HomeController extends Controller {
 	
 	public function constructor(Request $request) {
 		
-		return view('front/constructor/index');
+		$vfile = Vfile::first(); // Получаем первую выкройку для демонстрации
+		if (!$vfile) {
+			return back()->withErrors(['error' => 'Выкройки для конструктора не найдены.']);
+		}
+
+		$props = \App\Helpers\VFile::buildProps($vfile->vit_data);
+		$props = array_chunk($props, 3);
+
+		$return = compact('vfile', 'props');
+		return view('front/constructor/index', $return);
 		
 	}
 	
@@ -32,8 +41,6 @@ class HomeController extends Controller {
 		
 		$props = \App\Helpers\VFile::buildProps($vfile->vit_data);
 		$props = array_chunk($props, 3);
-		$props = json_encode($props, JSON_UNESCAPED_UNICODE);
-		$props = json_decode($props);
 		
 		$return = compact('vfile', 'props');
 		

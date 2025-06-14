@@ -5,7 +5,8 @@ jQuery(function($) {
 			tooltipClass: 'my_tooltip'
 		});
 		
-		$(document).on('click', '#doVfile', function() {
+		$(document).on('click', '#doVfile', function(e) {
+			e.preventDefault();
 			
 			var vForm = $('#formVfile');
 			

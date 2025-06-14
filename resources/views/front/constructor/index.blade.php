@@ -14,7 +14,7 @@
 					<p>Укажите собственные размеры, следуя инструкции</p>
 				</li>
 				<li>
-					<div><span>3</div></span>
+					<div><span>3</span></div>
 					<p>Получите готовую для печати выкройку в формате А4!</p>
 				</li>
 			</ul>
@@ -24,40 +24,29 @@
 				<div class="inside"></div>
 			</div>
 			<div class="panel">
-				<form id="construct" action="{{ route('vfiles.generate', ['vfile' => 1]) }}" method="POST">
+				<form id="construct" action="{{ route('vfiles.generate', $vfile->slug) }}" method="POST">
 					@csrf
 					<div class="ctitle">
-						<h2>Изделие: <span>Майка</span></h2>
+						<h2>Изделие: <span>{{ $vfile->title }}</span></h2>
 						<a href="#" class="selectVType">Выбрать тип изделия</a>
 					</div>
-					<div class="cgroup">
-						<div class="form_group">
-							<label>Длина передних лап</label>
-							<input type="text" name="measurements[d1]" value="7" />
-						</div>
-						<div class="form_group">
-							<label>Длина задних лап</label>
-							<input type="text" name="measurements[d2]" value="10" />
-						</div>
-						<div class="form_group">
-							<label>Длина спинки</label>
-							<input type="text" name="measurements[d3]" value="25" />
-						</div>
-					</div>
-					<div class="cgroup">
-						<div class="form_group">
-							<label>Обхват груди</label>
-							<input type="text" name="measurements[o1]" value="34" />
-						</div>
-						<div class="form_group">
-							<label>Обхват шеи</label>
-							<input type="text" name="measurements[o2]" value="24" />
-						</div>
-						<div class="form_group">
-							<label>Расстояние между лапами</label>
-							<input type="text" name="measurements[r1]" value="4" />
-						</div>
-					</div>
+					@if ($props)
+						@for ($a = 0; $a < sizeof($props); $a++)
+							<div class="cgroup">
+								@foreach ($props[$a] as $prop)
+									<div class="form_group">
+										<label for="p_{{ $prop['id'] }}">
+											{{ $prop['label'] }}
+											@if (isset($prop['hint']))
+												<a href="#" title="{{ $prop['hint'] }}" class="hint">?</a>
+											@endif
+										</label>
+										<input id="p_{{ $prop['id'] }}" type="text" name="measurements[{{ $prop['key'] }}]" data-default="{{ $prop['default'] }}" value="{{ $prop['default'] }}" class="vfile_prop" />
+									</div>
+								@endforeach
+							</div>
+						@endfor
+					@endif
 					<div class="btns">
 						<button type="submit" class="btn btn_primary">Построить выкройку</button>
 						<a href="#" class="btn btn_gray">Очистить</a>

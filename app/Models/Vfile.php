@@ -22,6 +22,7 @@ class Vfile extends Model
     // 2. Указываем Laravel, что колонка 'parameters' - это массив (для авто-конвертации в/из JSON)
     protected $casts = [
         'parameters' => 'array',
+        'vit_data' => 'array',
     ];
 
     // 3. Наш набор параметров по умолчанию, который будет автоматически добавляться к каждой новой выкройке
@@ -99,9 +100,21 @@ class Vfile extends Model
         foreach ($measurements as $name => $value) {
             $incrementNode = $vitXml->xpath("//increment[@name='{$name}']");
             if (isset($incrementNode[0])) {
-                $incrementNode[0][0] = (float)$value;
+                $decodedValue = html_entity_decode($value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+                
+                // Если значение является ссылкой на другое измерение (начинается с @), оставляем его как строку
+                if (str_starts_with($decodedValue, '@')) {
+                    $incrementNode[0][0] = $decodedValue;
+                } else {
+                    // Для числовых значений очищаем от нечисловых символов и приводим к float
+                    $cleanedValue = preg_replace('/[^0-9.]/', '', $decodedValue);
+                    $incrementNode[0][0] = (float)$cleanedValue;
+                }
             }
         }
+
+        // Удаляем отладочный вывод, чтобы увидеть содержимое и путь к .vit файлу
+        // dd($vitXml->asXML(), $tempVitPath);
 
         $vitXml->asXML($tempVitPath);
 

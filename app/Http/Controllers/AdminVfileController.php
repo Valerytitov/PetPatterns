@@ -21,7 +21,7 @@ class AdminVfileController extends Controller {
 
 		if ($list->count()) {
 			$list = $list->map(function($rec) {
-				$rec->props = json_decode($rec->vit_data);
+				$rec->props = $rec->vit_data;
 				return $rec;
 			});
 		}
@@ -70,6 +70,17 @@ class AdminVfileController extends Controller {
             if ($request->hasFile('vit_file')) {
                 if ($rec->vit_file) { Storage::disk('public')->delete($rec->vit_file); }
                 $validatedData['vit_file'] = $request->file('vit_file')->store('vfiles/vit', 'public');
+
+                // Парсим загруженный VIT файл и сохраняем его данные в vit_data
+                $uploadedVitFilePath = Storage::disk('public')->path($validatedData['vit_file']);
+                $parsedVitData = \App\Helpers\VFile::parseVIT($uploadedVitFilePath);
+
+                if ($parsedVitData) {
+                    $validatedData['vit_data'] = json_encode($parsedVitData, JSON_UNESCAPED_UNICODE);
+                } else {
+                    // Если парсинг не удался, можно добавить ошибку валидации
+                    return back()->withErrors(['vit_file' => 'Не удалось распознать данные из файла мерок (VIT). Проверьте его формат.'])->withInput();
+                }
             }
 
             // Заполняем модель и сохраняем
