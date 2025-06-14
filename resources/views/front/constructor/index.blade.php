@@ -24,7 +24,8 @@
 				<div class="inside"></div>
 			</div>
 			<div class="panel">
-				<form id="construct">
+				<form id="construct" action="{{ route('vfiles.generate', ['vfile' => 1]) }}" method="POST">
+					@csrf
 					<div class="ctitle">
 						<h2>Изделие: <span>Майка</span></h2>
 						<a href="#" class="selectVType">Выбрать тип изделия</a>
@@ -32,33 +33,33 @@
 					<div class="cgroup">
 						<div class="form_group">
 							<label>Длина передних лап</label>
-							<input type="text" name="d1" value="7" />
+							<input type="text" name="measurements[d1]" value="7" />
 						</div>
 						<div class="form_group">
 							<label>Длина задних лап</label>
-							<input type="text" name="d2" value="10" />
+							<input type="text" name="measurements[d2]" value="10" />
 						</div>
 						<div class="form_group">
 							<label>Длина спинки</label>
-							<input type="text" name="d3" value="25" />
+							<input type="text" name="measurements[d3]" value="25" />
 						</div>
 					</div>
 					<div class="cgroup">
 						<div class="form_group">
 							<label>Обхват груди</label>
-							<input type="text" name="o1" value="34" />
+							<input type="text" name="measurements[o1]" value="34" />
 						</div>
 						<div class="form_group">
 							<label>Обхват шеи</label>
-							<input type="text" name="o2" value="24" />
+							<input type="text" name="measurements[o2]" value="24" />
 						</div>
 						<div class="form_group">
 							<label>Расстояние между лапами</label>
-							<input type="text" name="r1" value="4" />
+							<input type="text" name="measurements[r1]" value="4" />
 						</div>
 					</div>
 					<div class="btns">
-						<button type="button" class="btn btn_primary">Построить выкройку</button>
+						<button type="submit" class="btn btn_primary">Построить выкройку</button>
 						<a href="#" class="btn btn_gray">Очистить</a>
 					</div>
 				</form>

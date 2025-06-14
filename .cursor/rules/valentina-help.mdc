@@ -1,0 +1,480 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Valentina Help
+
+DEBUG:Version: "0.7.52.0"
+DEBUG:Build revision: Git:9429be3e0
+DEBUG:"Based on Qt 5.15.8 (GCC 9.4.0, 64 bit)"
+DEBUG:Built on Jun 12 2025 at 01:04:47
+DEBUG:Command-line arguments: ("/usr/local/bin/seamly2dcl", "--help")
+DEBUG:Process ID: 16
+DEBUG:Default locale
+Usage: /usr/local/bin/seamly2dcl [options] filename
+Pattern making program.
+
+Options:
+  -h, --help                                         Displays help on
+                                                     commandline options.
+  --help-all                                         Displays help including Qt
+                                                     specific options.
+  -v, --version                                      Displays version
+                                                     information.
+  -b, --basename <The base filename of layout files> The base filename of
+                                                     exported layout files. Use
+                                                     it to enable console export
+                                                     mode.
+  -d, --destination <The destination folder>         The path to output
+                                                     destination folder. By
+                                                     default the directory at
+                                                     which the application was
+                                                     started.
+  -m, --mfile <The measure file>                     Path to custom measure
+                                                     file (export mode).
+  -n, --time <Time>                                  <Time> in minutes given
+                                                     for the algorithm to find
+                                                     best layout. Time must be
+                                                     in range from 1 minute to
+                                                     60 minutes. Default value 1
+                                                     minute.
+  --coefficient <Coefficient>                        Set layout efficiency
+                                                     <coefficient>. Layout
+                                                     efficiency coefficient is
+                                                     the ratio of the area
+                                                     occupied by the pieces to
+                                                     the bounding rect of all
+                                                     pieces. If nesting reaches
+                                                     required level the process
+                                                     stops. If value is 0 no
+                                                     check will be made.
+                                                     Coefficient must be in
+                                                     range from 0 to 100.
+                                                     Default value 0.
+  -f, --format <Format number>                       Number corresponding to
+                                                     output format (default = 0,
+                                                     export mode):
+                                                     * Svg files (*.svg) = 0,
+                                                     * PDF files (*.pdf) = 1,
+                                                     * Image files (*.png) = 2,
+                                                     * Wavefront OBJ (*.obj) =
+                                                     3,
+                                                     * PS files (*.ps) = 4,
+                                                     * EPS files (*.eps) = 5,
+                                                     * AutoCAD DXF R10 (flat)
+                                                     files (*.dxf) = 6,
+                                                     * AutoCAD DXF R11/12 (flat)
+                                                     files (*.dxf) = 7,
+                                                     * AutoCAD DXF R13 (flat)
+                                                     files (*.dxf) = 8,
+                                                     * AutoCAD DXF R14 (flat)
+                                                     files (*.dxf) = 9,
+                                                     * AutoCAD DXF 2000 (flat)
+                                                     files (*.dxf) = 10,
+                                                     * AutoCAD DXF 2004 (flat)
+                                                     files (*.dxf) = 11,
+                                                     * AutoCAD DXF 2007 (flat)
+                                                     files (*.dxf) = 12,
+                                                     * AutoCAD DXF 2010 (flat)
+                                                     files (*.dxf) = 13,
+                                                     * AutoCAD DXF 2013 (flat)
+                                                     files (*.dxf) = 14,
+                                                     * AutoCAD DXF R10 AAMA
+                                                     files (*.dxf) = 15,
+                                                     * AutoCAD DXF R11/12 AAMA
+                                                     files (*.dxf) = 16,
+                                                     * AutoCAD DXF R13 AAMA
+                                                     files (*.dxf) = 17,
+                                                     * AutoCAD DXF R14 AAMA
+                                                     files (*.dxf) = 18,
+                                                     * AutoCAD DXF 2000 AAMA
+                                                     files (*.dxf) = 19,
+                                                     * AutoCAD DXF 2004 AAMA
+                                                     files (*.dxf) = 20,
+                                                     * AutoCAD DXF 2007 AAMA
+                                                     files (*.dxf) = 21,
+                                                     * AutoCAD DXF 2010 AAMA
+                                                     files (*.dxf) = 22,
+                                                     * AutoCAD DXF 2013 AAMA
+                                                     files (*.dxf) = 23,
+                                                     * AutoCAD DXF R10 ASTM
+                                                     files (*.dxf) = 24,
+                                                     * AutoCAD DXF R11/12 ASTM
+                                                     files (*.dxf) = 25,
+                                                     * AutoCAD DXF R13 ASTM
+                                                     files (*.dxf) = 26,
+                                                     * AutoCAD DXF R14 ASTM
+                                                     files (*.dxf) = 27,
+                                                     * AutoCAD DXF 2000 ASTM
+                                                     files (*.dxf) = 28,
+                                                     * AutoCAD DXF 2004 ASTM
+                                                     files (*.dxf) = 29,
+                                                     * AutoCAD DXF 2007 ASTM
+                                                     files (*.dxf) = 30,
+                                                     * AutoCAD DXF 2010 ASTM
+                                                     files (*.dxf) = 31,
+                                                     * AutoCAD DXF 2013 ASTM
+                                                     files (*.dxf) = 32,
+                                                     * PDF tiled files (*.pdf) =
+                                                     33,
+                                                     * Raw Layout Data files
+                                                     (*.rld) = 35,
+                                                     * TIFF files (*.tif) = 36.
+
+  --bdxf                                             Export dxf in binary form.
+  --text2paths                                       Export text as paths.
+  --exportOnlyDetails                                Export only details.
+                                                     Export details as they
+                                                     positioned in the details
+                                                     mode. Any layout related
+                                                     options will be ignored.
+  --exportSuchDetails <The name regex>               Export only details that
+                                                     match a piece name regex.
+  --dimensionA <The dimension A base>                Set base for dimension A
+                                                     in the multisize
+                                                     measurements units (export
+                                                     mode).
+  --dimensionB <The dimension B base>                Set base for dimension B
+                                                     in the multisize
+                                                     measurements units (export
+                                                     mode).
+  --dimensionC <The dimension C base>                Set base for dimension C
+                                                     in the multisize
+                                                     measurements units (export
+                                                     mode).
+  --userMaterial <User material>                     Use this option to
+                                                     override user material
+                                                     defined in pattern. The
+                                                     value must be in form
+                                                     <number>@<user matrial
+                                                     name>. The number should be
+                                                     in range from 1 to 20. For
+                                                     example, 1@Fabric2. The key
+                                                     can be used multiple times.
+                                                     Has no effect in GUI mode.
+  -p, --pageformat <Template number>                 Number corresponding to
+                                                     layout page template
+                                                     (default = 0, export mode):
+                                                     * A0 = 0,
+                                                     * A1 = 1,
+                                                     * A2 = 2,
+                                                     * A3 = 3,
+                                                     * A4 = 4,
+                                                     * Letter = 5,
+                                                     * Legal = 6,
+                                                     * Tabloid = 7,
+                                                     * Roll 24in = 8,
+                                                     * Roll 30in = 9,
+                                                     * Roll 36in = 10,
+                                                     * Roll 42in = 11,
+                                                     * Roll 44in = 12,
+                                                     * Roll 48in = 13,
+                                                     * Roll 62in = 14,
+                                                     * Roll 72in = 15.
+
+  --landscapeOrientation                             Switch page template
+                                                     orientation to landscape
+                                                     (export mode). This option
+                                                     has effect only for one of
+                                                     predefined page templates.
+  -W, --pagew <The page width>                       Page width in current
+                                                     units like 12.0 (cannot be
+                                                     used with "pageformat",
+                                                     export mode).
+  -H, --pageh <The page height>                      Page height in current
+                                                     units like 12.0 (cannot be
+                                                     used with "pageformat",
+                                                     export mode).
+  -U, --pageunits <The measure unit>                 Page measure units (export
+                                                     mode). Valid values: mm,
+                                                     cm, inch, px.
+  -i, --ignoremargins                                Ignore printer margins
+                                                     (export mode). Use if need
+                                                     full paper space. In case
+                                                     of later printing you must
+                                                     account for the margins
+                                                     themselves.
+  -L, --lmargin <The left margin>                    Page left margin in
+                                                     current units like 3.0
+                                                     (export mode). If not set
+                                                     will be used value from
+                                                     default printer. Or 0 if
+                                                     none printers was found.
+  -R, --rmargin <The right margin>                   Page right margin in
+                                                     current units like 3.0
+                                                     (export mode). If not set
+                                                     will be used value from
+                                                     default printer. Or 0 if
+                                                     none printers was found.
+  -T, --tmargin <The top margin>                     Page top margin in current
+                                                     units like 3.0 (export
+                                                     mode). If not set will be
+                                                     used value from default
+                                                     printer. Or 0 if none
+                                                     printers was found.
+  -B, --bmargin <The bottom margin>                  Page bottom margin in
+                                                     current units like 3.0
+                                                     (export mode). If not set
+                                                     will be used value from
+                                                     default printer. Or 0 if
+                                                     none printers was found.
+  --xscale <Horizontal scale>                        Set horizontal scale
+                                                     factor from 0.01 to 3.0
+                                                     (default = 1.0, export
+                                                     mode).
+  --yscale <Vertical scale>                          Set vertical scale factor
+                                                     from 0.01 to 3.0 (default =
+                                                     1.0, export mode).
+  --followGrainline                                  Order detail to follow
+                                                     grainline direction (export
+                                                     mode).
+  --manualPriority                                   Follow manual priority
+                                                     over priority by square
+                                                     (export mode).
+  --nestQuantity                                     Nest quantity copies of
+                                                     each piece (export mode).
+  -c, --crop                                         Auto crop unused length
+                                                     (export mode).
+  --cropWidth                                        Auto crop unused width
+                                                     (export mode).
+  -u, --unite                                        Unite pages if possible
+                                                     (export mode). Maximum
+                                                     value limited by QImage
+                                                     that supports only a
+                                                     maximum of 32768x32768 px
+                                                     images.
+  --preferOneSheetSolution                           Prefer one sheet layout
+                                                     solution (export mode).
+  -S, --savelen                                      Save length of the sheet
+                                                     if set (export mode). The
+                                                     option tells the program to
+                                                     use as much as possible
+                                                     width of sheet. Quality of
+                                                     a layout can be worse when
+                                                     this option was used.
+  -l, --layounits <The unit>                         Layout units (as paper's
+                                                     one except px, export
+                                                     mode). Default units cm.
+  -G, --gapwidth <The gap width>                     The layout gap width x2,
+                                                     measured in layout units
+                                                     (export mode). Set distance
+                                                     between details and a
+                                                     detail and a sheet.
+  -g, --groups <Grouping type>                       Sets layout groupping
+                                                     cases (export mode): 
+                                                     Three groups: big, middle,
+                                                     small = 0;
+                                                     Two groups: big, small = 1;
+                                                     Descending area = 2.
+  -t, --test                                         Run the program in a test
+                                                     mode. The program in this
+                                                     mode loads a single pattern
+                                                     file and silently quit
+                                                     without showing the main
+                                                     window. The key have
+                                                     priority before key
+                                                     'basename'.
+  --pedantic                                         Make all parsing warnings
+                                                     into errors. Have effect
+                                                     only in console mode. Use
+                                                     to force Valentina to
+                                                     immediately terminate if a
+                                                     pattern contains a parsing
+                                                     warning.
+  --no-scaling                                       Disable high dpi scaling.
+                                                     Call this option if has
+                                                     problem with scaling (by
+                                                     default scaling enabled).
+                                                     Alternatively you can use
+                                                     the
+                                                     QT_AUTO_SCREEN_SCALE_FACTOR
+                                                     =0 environment variable.
+  --csvWithHeader                                    Export to csv with header.
+                                                     By default disabled.
+  --csvCodec <Codec name>                            Specify codec that will be
+                                                     used to save data. List of
+                                                     supported codecs provided
+                                                     by Qt. Default value depend
+                                                     from system. On Windows,
+                                                     the codec will be based on
+                                                     a system locale. On Unix
+                                                     systems, the codec will
+                                                     might fall back to using
+                                                     the iconv library if no
+                                                     builtin codec for the
+                                                     locale can be found. Valid
+                                                     values for this
+                                                     installation:
+                                                     * US-ASCII,
+                                                     * ISO-8859-1,
+                                                     * ISO-8859-2,
+                                                     * ISO-8859-3,
+                                                     * ISO-8859-4,
+                                                     * ISO-8859-5,
+                                                     * ISO-8859-6,
+                                                     * ISO-8859-7,
+                                                     * ISO-8859-8,
+                                                     * ISO-8859-9,
+                                                     * ISO-8859-10,
+                                                     * ISO-2022-JP-1,
+                                                     * Shift_JIS,
+                                                     * EUC-JP,
+                                                     * US-ASCII,
+                                                     * windows-949,
+                                                     * ISO-2022-KR,
+                                                     * windows-949,
+                                                     * ISO-2022-JP,
+                                                     * ISO-2022-JP-2,
+                                                     * GBK,
+                                                     * ISO-8859-6,
+                                                     * ISO-8859-6,
+                                                     * ISO-8859-8,
+                                                     * ISO-8859-8,
+                                                     * ISO-2022-CN,
+                                                     * ISO-2022-CN-EXT,
+                                                     * UTF-8,
+                                                     * ISO-8859-13,
+                                                     * ISO-8859-14,
+                                                     * ISO-8859-15,
+                                                     * GBK,
+                                                     * GB18030,
+                                                     * UTF-16,
+                                                     * UTF-32,
+                                                     * SCSU,
+                                                     * UTF-7,
+                                                     * UTF-16BE,
+                                                     * UTF-16LE,
+                                                     * UTF-16,
+                                                     * CESU-8,
+                                                     * UTF-32,
+                                                     * UTF-32BE,
+                                                     * UTF-32LE,
+                                                     * BOCU-1,
+                                                     * hp-roman8,
+                                                     * Adobe-Standard-Encoding,
+                                                     * IBM850,
+                                                     * IBM862,
+                                                     * IBM-Thai,
+                                                     * Shift_JIS,
+                                                     * GBK,
+                                                     * Big5,
+                                                     * macintosh,
+                                                     * IBM037,
+                                                     * IBM273,
+                                                     * IBM277,
+                                                     * IBM278,
+                                                     * IBM280,
+                                                     * IBM284,
+                                                     * IBM285,
+                                                     * IBM290,
+                                                     * IBM297,
+                                                     * IBM420,
+                                                     * IBM424,
+                                                     * IBM437,
+                                                     * IBM500,
+                                                     * cp851,
+                                                     * IBM852,
+                                                     * IBM855,
+                                                     * IBM857,
+                                                     * IBM860,
+                                                     * IBM861,
+                                                     * IBM863,
+                                                     * IBM864,
+                                                     * IBM865,
+                                                     * IBM868,
+                                                     * IBM869,
+                                                     * IBM870,
+                                                     * IBM871,
+                                                     * IBM918,
+                                                     * IBM1026,
+                                                     * KOI8-R,
+                                                     * HZ-GB-2312,
+                                                     * IBM866,
+                                                     * IBM775,
+                                                     * KOI8-U,
+                                                     * IBM00858,
+                                                     * IBM01140,
+                                                     * IBM01141,
+                                                     * IBM01142,
+                                                     * IBM01143,
+                                                     * IBM01144,
+                                                     * IBM01145,
+                                                     * IBM01146,
+                                                     * IBM01147,
+                                                     * IBM01148,
+                                                     * IBM01149,
+                                                     * Big5-HKSCS,
+                                                     * IBM1047,
+                                                     * windows-1250,
+                                                     * windows-1251,
+                                                     * windows-1252,
+                                                     * windows-1253,
+                                                     * windows-1254,
+                                                     * windows-1255,
+                                                     * windows-1256,
+                                                     * windows-1257,
+                                                     * windows-1258,
+                                                     * TIS-620,
+                                                     * TSCII.
+
+  --csvSeparator <Separator character>               Specify csv separator
+                                                     character. Default value is
+                                                     ','. Valid characters:
+                                                     * 'Tab',
+                                                     * ';',
+                                                     * 'Space',
+                                                     * ','.
+
+  --csvExportFM <Path to csv file>                   Calling this command
+                                                     enable exporting final
+                                                     measurements. Specify path
+                                                     to csv file with final
+                                                     measurements. The path must
+                                                     contain path to directory
+                                                     and name of file. It can be
+                                                     absolute or relatetive. In
+                                                     case of relative path will
+                                                     be used current working
+                                                     directory to calc a
+                                                     destination path.
+  --tiledPageformat <Template number>                Number corresponding to
+                                                     tiled pdf page template
+                                                     (default = 0, export mode
+                                                     with tiled pdf format):
+                                                     * A0 = 0,
+                                                     * A1 = 1,
+                                                     * A2 = 2,
+                                                     * A3 = 3,
+                                                     * A4 = 4,
+                                                     * Letter = 5,
+                                                     * Legal = 6,
+                                                     * Tabloid = 7.
+
+  --tiledlmargin <The left margin>                   Tiled page left margin in
+                                                     current units like 3.0
+                                                     (export mode). If not set
+                                                     will be used default value
+                                                     1 cm.
+  --tiledrmargin <The right margin>                  Tiled page right margin in
+                                                     current units like 3.0
+                                                     (export mode). If not set
+                                                     will be used default value
+                                                     1 cm.
+  --tiledtmargin <The top margin>                    Tiled page top margin in
+                                                     current units like 3.0
+                                                     (export mode). If not set
+                                                     will be used value default
+                                                     value 1 cm.
+  --tiledbmargin <The bottom margin>                 Tiled page bottom margin
+                                                     in current units like 3.0
+                                                     (export mode). If not set
+                                                     will be used value default
+                                                     value 1 cm.
+  --tiledLandscape                                   Set tiled page
+                                                     orienatation to landscape
+                                                     (export mode). Default
+                                                     value if not set portrait.
+
+Arguments:
+  filename                                           Pattern file.

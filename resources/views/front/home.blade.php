@@ -31,18 +31,18 @@
 		<div class="block_content">
 		<h2>Работы наших учеников</h2>
 		<div class="grid grid_3 grid_gallery">
-			<div class="grid_item" style="background-image: url(/uploads/1.jpg);"></div>
-			<div class="grid_item" style="background-image: url(/uploads/2.png);"></div>
-			<div class="grid_item" style="background-image: url(/uploads/3.jpg);"></div>
-			<div class="grid_item" style="background-image: url(/uploads/1.jpg);"></div>
-			<div class="grid_item" style="background-image: url(/uploads/2.png);"></div>
-			<div class="grid_item" style="background-image: url(/uploads/3.jpg);"></div>
-			<div class="grid_item" style="background-image: url(/uploads/1.jpg);"></div>
-			<div class="grid_item" style="background-image: url(/uploads/2.png);"></div>
-			<div class="grid_item" style="background-image: url(/uploads/3.jpg);"></div>
-			<div class="grid_item" style="background-image: url(/uploads/1.jpg);"></div>
-			<div class="grid_item" style="background-image: url(/uploads/2.png);"></div>
-			<div class="grid_item" style="background-image: url(/uploads/3.jpg);"></div>
+			<div class="grid_item" style="background-image: url({{ asset('/uploads/1.jpg') }});"></div>
+			<div class="grid_item" style="background-image: url({{ asset('/uploads/2.png') }});"></div>
+			<div class="grid_item" style="background-image: url({{ asset('/uploads/3.jpg') }});"></div>
+			<div class="grid_item" style="background-image: url({{ asset('/uploads/1.jpg') }});"></div>
+			<div class="grid_item" style="background-image: url({{ asset('/uploads/2.png') }});"></div>
+			<div class="grid_item" style="background-image: url({{ asset('/uploads/3.jpg') }});"></div>
+			<div class="grid_item" style="background-image: url({{ asset('/uploads/1.jpg') }});"></div>
+			<div class="grid_item" style="background-image: url({{ asset('/uploads/2.png') }});"></div>
+			<div class="grid_item" style="background-image: url({{ asset('/uploads/3.jpg') }});"></div>
+			<div class="grid_item" style="background-image: url({{ asset('/uploads/1.jpg') }});"></div>
+			<div class="grid_item" style="background-image: url({{ asset('/uploads/2.png') }});"></div>
+			<div class="grid_item" style="background-image: url({{ asset('/uploads/3.jpg') }});"></div>
 		</div>
 		</div>
 	</section>

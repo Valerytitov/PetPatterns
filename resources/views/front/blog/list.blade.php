@@ -17,7 +17,7 @@
 					@foreach ($posts as $post)
 						<div class="grid_item">
 							<a href="{{ route('blog.single', $post->slug) }}" title="{{ $post->title }}">
-								<div class="item_img" style="background-image: url({{ $post->image }});"></div>
+								<div class="item_img" style="background-image: url({{ Storage::url($post->image) }});"></div>
 							</a>
 							<div class="item_info">
 								<a href="{{ route('blog.single', $post->slug) }}" title="{{ $post->title }}" class="post_title">{{ $post->title }}</a>

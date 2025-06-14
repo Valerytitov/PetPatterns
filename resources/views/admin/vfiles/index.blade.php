@@ -10,7 +10,7 @@
 					<h1>Выкройки</h1>
 				</div>
 				<div class="col-sm-6 text-right">
-					<a href="{{ route('admin.vfiles.form', 0) }}" class="btn btn-primary">Добавить</a> 
+					<a href="{{ route('admin.vfiles.form', 0) }}" class="btn btn-primary">Добавить</a>
 				</div>
 			</div>
 		</div>
@@ -48,17 +48,27 @@
 											<tr>
 												<td>{{ $rec->id }}</td>
 												<td>
-													<div class="thumb" style="background-image: url({{ $rec->image }});"></div>
+													<a href="{{ route('admin.vfiles.form', $rec->id) }}">
+														<div class="thumb" style="background-image: url({{ Storage::url($rec->image) }});"></div>
+														<p class="title">{{ $rec->title }}</p>
+													</a>
 												</td>
-												<td>{{ $rec->title }}</td>
 												<td>{{ $rec->price }} руб.</td>
 												<td>
-													@if ($rec->props)
-														@foreach ($rec->props->data as $p)
-															<p class="smallest">{{ $p->title }} = {{ $p->default }}</p>
-														@endforeach
-													@endif
-												</td>
+                                                    {{-- Проверяем, что наш массив с параметрами не пустой --}}
+                                                    @if (!empty($rec->parameters))
+                                                        <ul class="list-unstyled mb-0">
+                                                            {{-- Перебираем массив параметров --}}
+                                                            @foreach ($rec->parameters as $parameter)
+                                                                <li>
+                                                                    <small>{{ $parameter['description'] }} (<code>{{ $parameter['name'] }}</code>)</small>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @else
+                                                        <span class="text-muted">Нет параметров</span>
+                                                    @endif
+                                                </td>
 												<td style="text-align: right;">
 													<a href="{{ route('admin.vfiles.props', $rec->id) }}" class="badge badge-warning" style="display: none;">
 														<i class="fa fa-cog"></i>

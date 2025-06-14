@@ -8,9 +8,8 @@
 				<div class="inside"></div>
 			</div>
 			<div class="panel">
-				<form id="formVfile" action="{{ route('shop.order') }}" method="POST">
+				<form id="formVfile" action="{{ route('vfiles.generate', $vfile->slug) }}" method="POST">
 					@csrf
-					<input type="hidden" name="id" value="{{ $vfile->id }}" />
 					<div class="ctitle">
 						<h2><span>{{ $vfile->title }}</span></h2>
 					</div>
@@ -25,7 +24,7 @@
 												<a href="#" title="{{ $prop->hint }}" class="hint">?</a>
 											@endif
 										</label>
-										<input id="p_{{ $prop->id }}" type="text" name="prop[{{ $prop->id }}]" data-default="{{ $prop->default }}" value="{{ $prop->default }}" class="vfile_prop" />
+										<input id="p_{{ $prop->id }}" type="text" name="measurements[{{ $prop->name }}]" data-default="{{ $prop->default }}" value="{{ $prop->default }}" class="vfile_prop" />
 									</div>
 								@endforeach
 							</div>
@@ -35,7 +34,7 @@
 						<p>Цена: <span>{{ number_format($vfile->price, 2, '.', '') }} &#8381;</span></p>
 					</div>
 					<div class="btns">
-						<button id="doVfile" type="button" class="btn btn_primary">Построить выкройку</button>
+						<button id="doVfile" type="submit" class="btn btn_primary">Построить выкройку</button>
 						<button id="resetVfile" type="button" class="btn btn_gray">Очистить</a>
 					</div>
 				</form>

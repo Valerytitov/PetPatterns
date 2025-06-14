@@ -3,19 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Vfile; // <-- 1. Добавляем правильную модель Vfile
 
-use App\Models\Post;
+class PageController extends Controller
+{
+    public function index()
+    {
+        // 2. Используем модель Vfile и переменную $products, как ожидает шаблон
+        $products = Vfile::orderBy('id', 'desc')->get();
 
-class PageController extends Controller {
+        $return = compact('products');
 
-    public function index() {
-		
-		$posts = Post::orderBy('id', 'desc')->get();
-		
-		$return = compact('posts');
-		
-        return view('front/shop/list', $return);
-		
+        // 3. Исправляем путь к шаблону на стандартный для Laravel
+        return view('front.shop.list', $return);
     }
-	
 }

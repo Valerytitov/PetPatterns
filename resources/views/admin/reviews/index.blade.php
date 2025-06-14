@@ -48,7 +48,7 @@
 											<tr>
 												<td>{{ $rec->id }}</td>
 												<td>
-													<div class="thumb" style="background-image: url({{ $rec->image }});"></div>
+													<div class="thumb" style="background-image: url({{ Storage::url($rec->image) }});"></div>
 												</td>
 												<td>{{ $rec->author }}</td>
 												<td width="25%"><p class="lines3">{{ $rec->content }}</p></td>

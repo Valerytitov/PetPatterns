@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	<link rel="stylesheet" href="/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
 	<link rel="stylesheet" href="/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-	<link rel="stylesheet" href="/admin/plugins/jqvmap/jqvmap.min.css"> 
+	<link rel="stylesheet" href="/admin/plugins/jqvmap/jqvmap.min.css">
 	<link rel="stylesheet" href="/admin/css/adminlte.min.css">
 	<link rel="stylesheet" href="/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 	<link rel="stylesheet" href="/admin/plugins/daterangepicker/daterangepicker.css">
@@ -19,7 +19,7 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 	<div class="wrapper">
-		<nav class="main-header navbar navbar-expand navbar-white navbar-light">		
+		<nav class="main-header navbar navbar-expand navbar-white navbar-light">
 			<ul class="navbar-nav">
 				<li class="nav-item">
 					<a href="{{ route('admin') }}" class="nav-link" data-widget="pushmenu" role="button"><i class="fas fa-bars"></i></a>
@@ -122,8 +122,8 @@
 							</ul>
 						</li>
 					</ul>
-				</nav>	
-			</div>		
+				</nav>
+			</div>
 		</aside>
 		<div class="content-wrapper">
 			@yield('content')
@@ -150,7 +150,7 @@
 				$('textarea[name=content]').summernote({
 					height: 450
 				});
-				
+
 			});
 		});
 	</script>

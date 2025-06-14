@@ -48,7 +48,7 @@
 											<tr>
 												<td>{{ $rec->id }}</td>
 												<td>
-													<div class="thumb" style="background-image: url({{ $rec->image }});"></div>
+													<div class="thumb" style="background-image: url({{ Storage::url($rec->image) }});"></div>
 												</td>
 												<td>{{ $rec->slug }}</td>
 												<td>{{ $rec->title }}</td>

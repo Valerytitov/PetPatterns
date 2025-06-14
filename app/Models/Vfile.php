@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\PatternParameter;
+// PatternParameter больше не нужен, так как мы удаляем эту связь
+// use App\Models\PatternParameter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,88 +11,82 @@ class Vfile extends Model
 {
     use HasFactory;
 
-	protected $fillable = [
+    // 1. Обновленный список полей, разрешенных для массового заполнения.
+    //    Добавили нашу новую колонку 'parameters'.
+    protected $fillable = [
+        'slug', 'title', 'short', 'content', 'price',
+        'val_file', 'vit_file', 'vit_data', 'image',
+        'parameters',
+    ];
 
-		'slug',
-		'title',
-		'short',
-		'content',
-		'price',
-		'val_file',
-		'vit_file',
-		'vit_data',
-		'image',
+    // 2. Указываем Laravel, что колонка 'parameters' - это массив (для авто-конвертации в/из JSON)
+    protected $casts = [
+        'parameters' => 'array',
+    ];
 
-	];
-
-	public static function generatePDF($name, $destination, $vit_file, $val_file)
-    {
-        // --- НАЧАЛО ВРЕМЕННОЙ ОТЛАДОЧНОЙ ВЕРСИИ ---
-
-        $url = 'http://31.128.38.42:37085/make';
-
-        // 1. Убедимся, что файлы, которые мы собираемся отправить, существуют
-        if (!file_exists($vit_file)) {
-            dd('ОШИБКА ОТЛАДКИ: .vit файл не найден по пути: ' . $vit_file);
-        }
-        if (!file_exists($val_file)) {
-            dd('ОШИБКА ОТЛАДКИ: .val файл не найден по пути: ' . $val_file);
-        }
-
-        // 2. Готовим данные для отправки. Для отправки файлов через POST
-        // нужно использовать специальный класс CURLFile.
-        $post_data = [
-            'name' => $name,
-            'destination' => $destination,
-            'format' => 1,
-            'page' => 4,
-            'vit' => new \CURLFile($vit_file),
-            'val' => new \CURLFile($val_file),
-        ];
-
-        // 3. Выполняем запрос к сервису с помощью библиотеки cURL
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Вернуть ответ, а не выводить в браузер
-        curl_setopt($ch, CURLOPT_POST, true); // Указываем, что это POST-запрос
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data); // Передаем наши данные
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10); // Таймаут на соединение 10 секунд
-        curl_setopt($ch, CURLOPT_TIMEOUT, 30); // Таймаут на выполнение запроса 30 секунд
-
-        $response = curl_exec($ch);
-        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE); // Получаем код ответа (200, 404, 500 и т.д.)
-        $curl_error = curl_error($ch); // Получаем текст ошибки, если cURL не смог соединиться
-        curl_close($ch);
-
-        // 4. Выводим ВСЮ информацию, которую нам удалось собрать, и останавливаем скрипт
-        dd([
-            'http_status_code' => $http_code,
-            'curl_connection_error' => $curl_error,
-            'service_response_body' => $response
-        ]);
-
-        // --- КОНЕЦ ВРЕМЕННОЙ ОТЛАДОЧНОЙ ВЕРСИИ ---
-    }
-	/**
-     * Определяем связь "один ко многим" (hasMany):
-     * Одна "Выкройка" (Vfile) может иметь много "Параметров" (PatternParameter).
-     * Это позволит нам легко получать список всех параметров для выкройки: $vfile->parameters
-     */
-    public function parameters()
-    {
-        return $this->hasMany(PatternParameter::class);
-    }
+    // 3. Наш набор параметров по умолчанию, который будет автоматически добавляться к каждой новой выкройке
+    private static $defaultParameters = [
+        ['name' => 'ДС', 'description' => 'Длина спинки'],
+        ['name' => 'ДИ', 'description' => 'Длина изделия'],
+        ['name' => 'ОГ', 'description' => 'Обхват груди'],
+        ['name' => 'ОТ', 'description' => 'Обхват талии'],
+        ['name' => 'ОШ', 'description' => 'Обхват шеи'],
+        ['name' => 'Мпл', 'description' => 'Расстояние между передними лапами'],
+        ['name' => 'Дпл', 'description' => 'Длина передних лап'],
+        ['name' => 'Дзл', 'description' => 'Длина задних лап'],
+    ];
 
     /**
-     * Создает временный .vit файл с мерками пользователя,
-     * вызывает статический генератор PDF и затем удаляет временный файл.
-     *
-     * @param array $measurements
-     * @return string|bool
+     * The "booted" method of the model.
+     * Этот код выполняется автоматически при событиях модели.
      */
+    protected static function booted()
+    {
+        // Событие 'creating' срабатывает ПЕРЕД сохранением новой выкройки в базу
+        static::creating(function ($vfile) {
+            // Если для выкройки еще не заданы параметры, заполняем их нашим набором по умолчанию.
+            if (empty($vfile->parameters)) {
+                $vfile->parameters = self::$defaultParameters;
+            }
+        });
+    }
+
+    // Статическая функция для генерации PDF. Теперь она использует наш локальный движок.
+    public static function generatePDF($name, $destination, $vit_file, $val_file)
+    {
+        $enginePath = '/usr/local/bin/valentina';
+        $outputDir = storage_path('app/pdf_output');
+
+        if (!is_dir($outputDir)) {
+            mkdir($outputDir, 0775, true);
+        }
+
+        $platformArg = escapeshellarg('offscreen');
+        $formatArg = 1; // PDF
+        $vitArg = escapeshellarg($vit_file);
+        $valArg = escapeshellarg($val_file);
+        $basenameArg = escapeshellarg(pathinfo($val_file, PATHINFO_FILENAME));
+        $destArg = escapeshellarg($outputDir);
+
+        $command = sprintf(
+            '%s -platform %s --format %d --basename %s --mfile %s --destination %s %s',
+            $enginePath, $platformArg, $formatArg, $basenameArg, $vitArg, $destArg, $valArg
+        );
+
+        $shellOutput = shell_exec($command . ' 2>&1');
+
+        $expectedPdfPath = $outputDir . '/' . pathinfo($val_file, PATHINFO_FILENAME) . '.pdf';
+
+        if (!file_exists($expectedPdfPath)) {
+            throw new \Exception("Не удалось сгенерировать PDF. Команда: " . $command . " | Вывод движка: " . $shellOutput);
+        }
+
+        return $expectedPdfPath;
+    }
+
+    // Метод generateCustomPDF остается без изменений, он использует новую версию generatePDF
     public function generateCustomPDF(array $measurements)
     {
-        // 1. Создаем временный .vit файл на основе оригинального
         $originalVitPath = $this->vit_file;
         $tempVitPath = storage_path('app/vfiles/temp_' . uniqid() . '.vit');
 
@@ -99,38 +94,30 @@ class Vfile extends Model
             throw new \Exception('Не удалось создать временный файл мерок.');
         }
 
-        // 2. Записываем мерки пользователя в этот временный файл (магия с XML)
         $vitXml = new \SimpleXMLElement(file_get_contents($tempVitPath));
 
         foreach ($measurements as $name => $value) {
-            // Ищем в XML тег <increment> с нужным нам именем
             $incrementNode = $vitXml->xpath("//increment[@name='{$name}']");
             if (isset($incrementNode[0])) {
-                // Если нашли - меняем его значение
                 $incrementNode[0][0] = (float)$value;
             }
         }
 
-        // Сохраняем измененный XML обратно во временный файл
         $vitXml->asXML($tempVitPath);
 
-        // 3. Вызываем старый генератор, но с путем к нашему новому файлу
         try {
-            // В качестве $name и $destination передаем уникальные идентификаторы
-            $pdfData = self::generatePDF(
+            $pdfPath = self::generatePDF(
                 uniqid('pattern_'),
                 uniqid('dest_'),
-                $tempVitPath, // <-- Самое главное: передаем временный .vit
+                $tempVitPath,
                 $this->val_file
             );
         } finally {
-            // 4. В любом случае удаляем временный файл после использования
             if (file_exists($tempVitPath)) {
                 unlink($tempVitPath);
             }
         }
 
-        return $pdfData;
+        return $pdfPath;
     }
-
 }

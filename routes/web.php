@@ -23,8 +23,9 @@ Route::get('/control/orders/form/{id}', [App\Http\Controllers\AdminOrderControll
 Route::post('/control/orders/form/{id}', [App\Http\Controllers\AdminOrderController::class, 'form'])->name('admin.orders.form');
 
 Route::get('/control/vfiles', [App\Http\Controllers\AdminVfileController::class, 'index'])->name('admin.vfiles');
-Route::get('/control/vfiles/form/{id}', [App\Http\Controllers\AdminVfileController::class, 'form'])->name('admin.vfiles.form');
-Route::post('/control/vfiles/form/{id}', [App\Http\Controllers\AdminVfileController::class, 'form'])->name('admin.vfiles.form');
+Route::get('/control/vfiles/form/{id?}', [App\Http\Controllers\AdminVfileController::class, 'form'])->name('admin.vfiles.form');
+Route::post('/control/vfiles/form/{id}', [App\Http\Controllers\AdminVfileController::class, 'form'])->name('admin.vfiles.update');
+Route::post('/control/vfiles/form', [App\Http\Controllers\AdminVfileController::class, 'form'])->name('admin.vfiles.store');
 Route::get('/control/vfiles/props/{id}', [App\Http\Controllers\AdminVfileController::class, 'props'])->name('admin.vfiles.props');
 Route::post('/control/vfiles/props/{id}', [App\Http\Controllers\AdminVfileController::class, 'props'])->name('admin.vfiles.props');
 
