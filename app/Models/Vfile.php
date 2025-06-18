@@ -12,17 +12,15 @@ class Vfile extends Model
     use HasFactory;
 
     // 1. Обновленный список полей, разрешенных для массового заполнения.
-    //    Добавили нашу новую колонку 'parameters'.
+    //    Удалили 'vit_data'.
     protected $fillable = [
         'slug', 'title', 'short', 'content', 'price',
-        'val_file', 'vit_file', 'vit_data', 'image',
-        'parameters',
+        'val_file', 'vit_file', 'image',
     ];
 
     // 2. Указываем Laravel, что колонка 'parameters' - это массив (для авто-конвертации в/из JSON)
+    //    Удалили 'vit_data'.
     protected $casts = [
-        'parameters' => 'array',
-        'vit_data' => 'array',
     ];
 
     // 3. Наш набор параметров по умолчанию, который будет автоматически добавляться к каждой новой выкройке
@@ -46,9 +44,9 @@ class Vfile extends Model
         // Событие 'creating' срабатывает ПЕРЕД сохранением новой выкройки в базу
         static::creating(function ($vfile) {
             // Если для выкройки еще не заданы параметры, заполняем их нашим набором по умолчанию.
-            if (empty($vfile->parameters)) {
-                $vfile->parameters = self::$defaultParameters;
-            }
+            // if (empty($vfile->parameters)) {
+            //     $vfile->parameters = self::$defaultParameters;
+            // }
         });
     }
 
@@ -85,43 +83,35 @@ class Vfile extends Model
         return $expectedPdfPath;
     }
 
-    // Метод generateCustomPDF остается без изменений, он использует новую версию generatePDF
+    // Метод generateCustomPDF теперь полностью генерирует .vit файл с нуля
     public function generateCustomPDF(array $measurements)
     {
-        $originalVitPath = $this->vit_file;
-        $tempVitPath = storage_path('app/vfiles/temp_' . uniqid() . '.vit');
+        $tempVitPath = storage_path('app/public/temp/temp_measures_' . uniqid() . '.vit');
 
-        if (!copy($originalVitPath, $tempVitPath)) {
-            throw new \Exception('Не удалось создать временный файл мерок.');
-        }
-
-        $vitXml = new \SimpleXMLElement(file_get_contents($tempVitPath));
+        $xmlString = '<measurements></measurements>';
+        $vitXml = new \SimpleXMLElement($xmlString);
 
         foreach ($measurements as $name => $value) {
-            $incrementNode = $vitXml->xpath("//increment[@name='{$name}']");
-            if (isset($incrementNode[0])) {
-                $decodedValue = html_entity_decode($value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
-                
-                // Если значение является ссылкой на другое измерение (начинается с @), оставляем его как строку
-                if (str_starts_with($decodedValue, '@')) {
-                    $incrementNode[0][0] = $decodedValue;
-                } else {
-                    // Для числовых значений очищаем от нечисловых символов и приводим к float
-                    $cleanedValue = preg_replace('/[^0-9.]/', '', $decodedValue);
-                    $incrementNode[0][0] = (float)$cleanedValue;
-                }
+            $measurementNode = $vitXml->addChild('measurement');
+            $measurementNode->addAttribute('name', $name);
+            $measurementNode->addAttribute('unit', 'cm'); // Предполагаем, что единица измерения - cm
+
+            $decodedValue = html_entity_decode($value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+
+            if (str_starts_with($decodedValue, '@')) {
+                $measurementNode->addAttribute('value', $decodedValue);
+            } else {
+                $cleanedValue = preg_replace('/[^0-9.]/', '', $decodedValue);
+                $measurementNode->addAttribute('value', (string)(float)$cleanedValue);
             }
         }
-
-        // Удаляем отладочный вывод, чтобы увидеть содержимое и путь к .vit файлу
-        // dd($vitXml->asXML(), $tempVitPath);
 
         $vitXml->asXML($tempVitPath);
 
         try {
             $pdfPath = self::generatePDF(
-                uniqid('pattern_'),
-                uniqid('dest_'),
+                uniqid('pattern_'), // $name - basename для PDF, будет создан на основе val_file
+                uniqid('dest_'),   // $destination - каталог для PDF, будет использован outputDir
                 $tempVitPath,
                 $this->val_file
             );

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vit>
+    <!--Measurements created with Valentina v0.7.53.none (https://smart-pattern.com.ua/).-->
+    <version>0.6.1</version>
+    <read-only>false</read-only>
+    <notes/>
+    <unit>cm</unit>
+    <pm_system>{00000000-0000-0000-0000-000000000000}</pm_system>
+    <personal>
+        <customer/>
+        <birth-date>1800-01-01</birth-date>
+        <gender>unknown</gender>
+        <email/>
+    </personal>
+    <body-measurements>
+        <m description="Длина спинки измеряется от ошейника до начала хвостика" full_name="Длина спинки" name="@ДС" value="29"/>
+        <m full_name="Длина изделия" name="@ДИ" value="@ДС"/>
+        <m description="Обхват груди измеряется за передними лапами питомца" full_name="Обхват груди" name="@ОГ" value="10"/>
+        <m full_name="Обхват талии" name="@ОТ" value="10"/>
+        <m description="Обхват шеи измеряется в районе ошейника" full_name="Обхват шеи" name="@ОШ" value="10"/>
+        <m full_name="Расстояние между передними лапами" name="@Мпл" value="10"/>
+        <m description="Желаемая длина рукава&#10;Длина лап 15" full_name="Длина передних лап" name="@Дпл" value="10"/>
+        <m description="Желаемая длина штанины&#10;Длина лап 22" full_name="Длина задних лап" name="@Дзл" value="10"/>
+    </body-measurements>
+</vit>

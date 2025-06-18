@@ -1,0 +1,340 @@
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(538)] void VApplication::BeginLogging(): v.application: Log file /var/www/.config/ValentinaTeam/valentina-pid66.log was locked.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(570)] static void VApplication::ClearOldLogs(): v.application: Clearing old logs
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(609)] void VApplication::InitOptions(): default: Version: "0.7.52.0"
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(610)] void VApplication::InitOptions(): default: Build revision: Git:9429be3e0
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(611)] void VApplication::InitOptions(): default: "Based on Qt 5.15.8 (GCC 9.4.0, 64 bit)"
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(612)] void VApplication::InitOptions(): default: Built on Jun 13 2025 at 22:39:56
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(613)] void VApplication::InitOptions(): default: Command-line arguments: ("/usr/local/bin/valentina", "--format", "1", "--basename", "pattern_9_68531a4a1e2fe", "--mfile", "/var/www/storage/app/public/temp-run-a3a131d6-5cde-4fbb-a543-460466a793fa/user_measures.vit", "--destination", "/var/www/storage/app/public/generated_pdfs", "/var/www/storage/app/public/temp-run-a3a131d6-5cde-4fbb-a543-460466a793fa/3obPyDUU26cZtwSUyEGny0yXZKsm6c7EmT4lVCW4.xml")
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(614)] void VApplication::InitOptions(): default: Process ID: 66
+[2025.06.18 19:58:02:DEBUG:../../../../src/libs/vmisc/vabstractapplication.cpp(245)] void VAbstractApplication::LoadTranslation(const QString&): default: Default locale
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5548)] void MainWindow::InitDocksContain(): v.mainwindow: Initialization property browser.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5554)] void MainWindow::InitDocksContain(): v.mainwindow: Initialization groups dock.
+[2025.06.18 19:58:02:DEBUG:../../../../src/libs/ifc/xml/vabstractpattern.cpp(2584)] QMap<unsigned int, VGroupData> VAbstractPattern::GetGroups(const QString&): default: Can't get tag Groups.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5716)] void MainWindow::InitAutoSave(): v.mainwindow: Autosaving each 1 minutes.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5144)] void MainWindow::ReadSettings(): v.mainwindow: Reading settings.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5107)] void MainWindow::setCurrentFile(const QString&): v.mainwindow: Set current name to ""
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5771)] bool MainWindow::LoadPattern(QString, const QString&): v.mainwindow: Loading new file /var/www/storage/app/public/temp-run-a3a131d6-5cde-4fbb-a543-460466a793fa/3obPyDUU26cZtwSUyEGny0yXZKsm6c7EmT4lVCW4.xml.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5856)] bool MainWindow::LoadPattern(QString, const QString&): v.mainwindow: Loking file
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5861)] bool MainWindow::LoadPattern(QString, const QString&): v.mainwindow: Pattern file /var/www/storage/app/public/temp-run-a3a131d6-5cde-4fbb-a543-460466a793fa/3obPyDUU26cZtwSUyEGny0yXZKsm6c7EmT4lVCW4.xml was locked.
+[2025.06.18 19:58:02:DEBUG:../../../../src/libs/ifc/xml/vabstractconverter.cpp(226)] void VAbstractConverter::ValidateXML(const QString&) const: v.xml: Validation xml file /tmp/Valentina.nMqLTp.
+[2025.06.18 19:58:02:DEBUG:../../../../src/libs/ifc/xml/vabstractconverter.cpp(253)] void VAbstractConverter::ValidateXML(const QString&) const: v.xml: Schema loaded.
+[2025.06.18 19:58:02:DEBUG:../../../../src/libs/ifc/xml/vabstractconverter.cpp(226)] void VAbstractConverter::ValidateXML(const QString&) const: v.xml: Validation xml file /var/www/storage/app/public/temp-run-a3a131d6-5cde-4fbb-a543-460466a793fa/user_measures.vit.
+[2025.06.18 19:58:02:DEBUG:../../../../src/libs/ifc/xml/vabstractconverter.cpp(253)] void VAbstractConverter::ValidateXML(const QString&) const: v.xml: Schema loaded.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(4078)] void MainWindow::FullParseFile(): v.mainwindow: Full parsing file
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(210)] void VPattern::Parse(const Document&): v.xml: Parsing pattern.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(214)] void VPattern::Parse(const Document&): v.xml: Full parse.
+[2025.06.18 19:58:02:DEBUG:../../../../src/libs/vpatterndb/vcontainer.cpp(389)] void VContainer::ClearForFullParse(): v.container: Clearing container data for full parse.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(281)] void VPattern::Parse(const Document&): v.xml: Ignoring tag version
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(281)] void VPattern::Parse(const Document&): v.xml: Ignoring tag unit
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(281)] void VPattern::Parse(const Document&): v.xml: Ignoring tag description
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(281)] void VPattern::Parse(const Document&): v.xml: Ignoring tag notes
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(281)] void VPattern::Parse(const Document&): v.xml: Ignoring tag patternName
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(281)] void VPattern::Parse(const Document&): v.xml: Ignoring tag patternNumber
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(281)] void VPattern::Parse(const Document&): v.xml: Ignoring tag company
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(281)] void VPattern::Parse(const Document&): v.xml: Ignoring tag patternLabel
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(281)] void VPattern::Parse(const Document&): v.xml: Ignoring tag watermark
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(281)] void VPattern::Parse(const Document&): v.xml: Ignoring tag measurements
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(269)] void VPattern::Parse(const Document&): v.xml: Tag increments.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(276)] void VPattern::Parse(const Document&): v.xml: Tag prewiew calculations.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(247)] void VPattern::Parse(const Document&): v.xml: Tag draw.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(817)] void VPattern::ParseDrawElement(const QDomNode&, const Document&): v.xml: Tag calculation.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3842)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VToolCubicBezier.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3842)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VToolCubicBezier.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3842)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VToolCubicBezier.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3842)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VToolCubicBezier.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3842)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VToolCubicBezier.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3842)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VToolCubicBezier.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3842)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VToolCubicBezier.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3842)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VToolCubicBezier.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3842)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VToolCubicBezier.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3842)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VToolCubicBezier.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(822)] void VPattern::ParseDrawElement(const QDomNode&, const Document&): v.xml: Tag modeling.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3834)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VNodeSpline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3834)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VNodeSpline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3834)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VNodeSpline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3834)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VNodeSpline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3834)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VNodeSpline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3834)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VNodeSpline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3834)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VNodeSpline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3834)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VNodeSpline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3834)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VNodeSpline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3834)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VNodeSpline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(900)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag path.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(900)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag path.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(900)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag path.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(900)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag path.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3834)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VNodeSpline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(900)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag path.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(900)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag path.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(826)] void VPattern::ParseDrawElement(const QDomNode&, const Document&): v.xml: Tag details.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(830)] void VPattern::ParseDrawElement(const QDomNode&, const Document&): v.xml: Tag groups.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(247)] void VPattern::Parse(const Document&): v.xml: Tag draw.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(817)] void VPattern::ParseDrawElement(const QDomNode&, const Document&): v.xml: Tag calculation.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(876)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag line.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3842)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VToolCubicBezier.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3842)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VToolCubicBezier.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(872)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag point.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(880)] void VPattern::ParseDrawMode(const QDomNode&, const Document&, const Draw&): v.xml: Tag spline.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(3842)] void VPattern::ParseSplineElement(VMainGraphicsScene*, QDomElement&, const Document&, const QString&): v.xml: VToolCubicBezier.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(822)] void VPattern::ParseDrawElement(const QDomNode&, const Document&): v.xml: Tag modeling.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(826)] void VPattern::ParseDrawElement(const QDomNode&, const Document&): v.xml: Tag details.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(830)] void VPattern::ParseDrawElement(const QDomNode&, const Document&): v.xml: Tag groups.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(314)] void VPattern::setCurrentData(): v.xml: Setting current data
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(315)] void VPattern::setCurrentData(): v.xml: Current PP name Капюшон с серединой
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(316)] void VPattern::setCurrentData(): v.xml: PP count 2
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(326)] void VPattern::setCurrentData(): v.xml: Resoring data from tool with id 1143
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(346)] void VPattern::setCurrentData(): v.xml: Data successfully updated.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(5107)] void MainWindow::setCurrentFile(const QString&): v.mainwindow: Set current name to "/var/www/storage/app/public/temp-run-a3a131d6-5cde-4fbb-a543-460466a793fa/3obPyDUU26cZtwSUyEGny0yXZKsm6c7EmT4lVCW4.xml"
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(6024)] bool MainWindow::LoadPattern(QString, const QString&): v.mainwindow: File loaded.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(314)] void VPattern::setCurrentData(): v.xml: Setting current data
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(315)] void VPattern::setCurrentData(): v.xml: Current PP name СПИНКА и ПЕРЕД
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(316)] void VPattern::setCurrentData(): v.xml: PP count 2
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(326)] void VPattern::setCurrentData(): v.xml: Resoring data from tool with id 1193
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(346)] void VPattern::setCurrentData(): v.xml: Data successfully updated.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(3494)] void MainWindow::ActionDetails(bool): v.mainwindow: Show details scene
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(3411)] void MainWindow::ActionDraw(bool): v.mainwindow: Show draw scene
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(314)] void VPattern::setCurrentData(): v.xml: Setting current data
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(315)] void VPattern::setCurrentData(): v.xml: Current PP name Капюшон с серединой
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(316)] void VPattern::setCurrentData(): v.xml: PP count 2
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(326)] void VPattern::setCurrentData(): v.xml: Resoring data from tool with id 1143
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(346)] void VPattern::setCurrentData(): v.xml: Data successfully updated.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(314)] void VPattern::setCurrentData(): v.xml: Setting current data
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(315)] void VPattern::setCurrentData(): v.xml: Current PP name СПИНКА и ПЕРЕД
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(316)] void VPattern::setCurrentData(): v.xml: PP count 2
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(326)] void VPattern::setCurrentData(): v.xml: Resoring data from tool with id 1193
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(346)] void VPattern::setCurrentData(): v.xml: Data successfully updated.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(3494)] void MainWindow::ActionDetails(bool): v.mainwindow: Show details scene
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(3411)] void MainWindow::ActionDraw(bool): v.mainwindow: Show draw scene
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(314)] void VPattern::setCurrentData(): v.xml: Setting current data
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(315)] void VPattern::setCurrentData(): v.xml: Current PP name Капюшон с серединой
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(316)] void VPattern::setCurrentData(): v.xml: PP count 2
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(326)] void VPattern::setCurrentData(): v.xml: Resoring data from tool with id 1143
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/xml/vpattern.cpp(346)] void VPattern::setCurrentData(): v.xml: Data successfully updated.
+[2025.06.18 19:58:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(3411)] void MainWindow::ActionDraw(bool): v.mainwindow: Show draw scene
+[2025.06.18 19:58:02:DEBUG:../../../../src/libs/ifc/xml/vabstractconverter.cpp(226)] void VAbstractConverter::ValidateXML(const QString&) const: v.xml: Validation xml file /var/www/storage/app/public/temp-run-a3a131d6-5cde-4fbb-a543-460466a793fa/3obPyDUU26cZtwSUyEGny0yXZKsm6c7EmT4lVCW4.xml.
+[2025.06.18 19:58:02:DEBUG:../../../../src/libs/ifc/xml/vabstractconverter.cpp(253)] void VAbstractConverter::ValidateXML(const QString&) const: v.xml: Schema loaded.
+[2025.06.18 19:58:04:DEBUG:../../../../src/app/valentina/mainwindowsnogui.cpp(323)] bool MainWindowsNoGUI::GenerateLayout(VLayoutGenerator&): default: Layout efficiency:  31.9804
+[2025.06.18 19:58:06:DEBUG:../../../../src/app/valentina/mainwindowsnogui.cpp(323)] bool MainWindowsNoGUI::GenerateLayout(VLayoutGenerator&): default: Layout efficiency:  64.0987
+[2025.06.18 19:58:10:DEBUG:../../../../src/app/valentina/mainwindowsnogui.cpp(323)] bool MainWindowsNoGUI::GenerateLayout(VLayoutGenerator&): default: Layout efficiency:  65.3173
+[2025.06.18 19:58:12:DEBUG:../../../../src/app/valentina/mainwindowsnogui.cpp(323)] bool MainWindowsNoGUI::GenerateLayout(VLayoutGenerator&): default: Layout efficiency:  71.5775
+[2025.06.18 19:58:16:DEBUG:../../../../src/app/valentina/mainwindowsnogui.cpp(323)] bool MainWindowsNoGUI::GenerateLayout(VLayoutGenerator&): default: Layout efficiency:  71.5833
+[2025.06.18 19:58:27:DEBUG:../../../../src/app/valentina/mainwindowsnogui.cpp(323)] bool MainWindowsNoGUI::GenerateLayout(VLayoutGenerator&): default: Layout efficiency:  72.1848
+[2025.06.18 19:59:02:DEBUG:../../../../src/app/valentina/dialogs/dialogsavelayout.cpp(324)] void DialogSaveLayout::SetDestinationPath(const QString&): default: Output full path:  "/var/www/storage/app/public/generated_pdfs" 
+
+[2025.06.18 19:59:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(3091)] void MainWindow::CancelTool(): v.mainwindow: Canceling tool.
+[2025.06.18 19:59:02:DEBUG:../../../../src/app/valentina/mainwindow.cpp(3097)] void MainWindow::CancelTool(): v.mainwindow: Dialog closed.
+[2025.06.18 19:59:02:DEBUG:../../../../src/app/valentina/core/vapplication.cpp(337)] virtual VApplication::~VApplication(): v.application: Application closing.

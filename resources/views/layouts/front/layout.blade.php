@@ -30,7 +30,7 @@
 					<li><a href="{{ route('page', 'contacts') }}">Контакты</a></li>
 				</ul>
 				<div class="btns">
-					<a href="{{ route('constructor') }}" class="btn btn_primary">Создать выкройку</a>
+					<a href="{{ route('shop') }}" class="btn btn_primary">Создать выкройку</a>
 					<a href="{{ route('page', 'course') }}" class="btn btn_secondary">Подробнее о курсе</a>
 				</div>
 			</nav>

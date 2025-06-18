@@ -24,7 +24,31 @@
 				<div class="inside"></div>
 			</div>
 			<div class="panel">
-				<form id="construct" action="{{ route('vfiles.generate', $vfile->slug) }}" method="POST">
+				@if ($errors->any())
+					<div style="padding: 15px; background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; border-radius: 5px; margin-bottom: 20px;">
+						<strong>Обнаружены ошибки валидации:</strong>
+						<ul>
+							@foreach ($errors->all() as $error)
+								<li>{{ $error }}</li>
+							@endforeach
+						</ul>
+					</div>
+				@endif
+				<form id="construct" action="{{ route('vfiles.generate', $vfile->slug) }}" method="POST" x-data="{
+					measurements: {{ json_encode(collect($props)->flatten(1)->mapWithKeys(function($prop) { 
+						// Если значение по умолчанию - это ссылка, берем значение из другой мерки
+						$default = $prop['default'] ?? '';
+						if (str_starts_with($default, '@')) {
+							$refKey = $default;
+							$refProp = collect($props)->flatten(1)->firstWhere('prop_key', $refKey);
+							$default = $refProp['default'] ?? '';
+						}
+						return [$prop['prop_key'] => $default]; 
+					}) ) }},
+					init() {
+						console.log('measurements in init:', this.measurements);
+					}
+				}">
 					@csrf
 					<div class="ctitle">
 						<h2>Изделие: <span>{{ $vfile->title }}</span></h2>
@@ -36,12 +60,12 @@
 								@foreach ($props[$a] as $prop)
 									<div class="form_group">
 										<label for="p_{{ $prop['id'] }}">
-											{{ $prop['label'] }}
-											@if (isset($prop['hint']))
-												<a href="#" title="{{ $prop['hint'] }}" class="hint">?</a>
+											{{ $prop['prop_title'] }}
+											@if (isset($prop['prop_hint']))
+												<a href="#" title="{{ $prop['prop_hint'] }}" class="hint">?</a>
 											@endif
 										</label>
-										<input id="p_{{ $prop['id'] }}" type="text" name="measurements[{{ $prop['key'] }}]" data-default="{{ $prop['default'] }}" value="{{ $prop['default'] }}" class="vfile_prop" />
+										<input id="p_{{ $prop['id'] }}" type="text" name="measurements[{{ $prop['prop_key'] }}]" x-model="measurements['{{ $prop['prop_key'] }}']" class="vfile_prop" />
 									</div>
 								@endforeach
 							</div>

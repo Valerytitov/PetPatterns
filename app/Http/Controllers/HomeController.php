@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Vfile;
+use App\Models\Prop;
 
 class HomeController extends Controller {
 
@@ -22,7 +23,26 @@ class HomeController extends Controller {
 			return back()->withErrors(['error' => 'Выкройки для конструктора не найдены.']);
 		}
 
-		$props = \App\Helpers\VFile::buildProps($vfile->vit_data);
+        $defaultValues = [
+            '@ДС' => '29',
+            '@ДИ' => '@ДС',
+            '@ОГ' => '42',
+            '@ОТ' => '40',
+            '@ОШ' => '28',
+            '@Мпл' => '6',
+            '@Дпл' => '9',
+            '@Дзл' => '11',
+        ];
+
+		// Получаем параметры напрямую из таблицы props
+		$props = Prop::orderBy('sort_order')->get()->map(function ($prop) use ($defaultValues) {
+            $propArray = $prop->toArray();
+            if (isset($defaultValues[$propArray['prop_key']])) {
+                $propArray['default'] = $defaultValues[$propArray['prop_key']];
+            }
+            return $propArray;
+        })->toArray();
+
 		$props = array_chunk($props, 3);
 
 		$return = compact('vfile', 'props');
@@ -38,8 +58,27 @@ class HomeController extends Controller {
 		if (!$vfile) {
 			abort(404);
 		}
+
+        $defaultValues = [
+            '@ДС' => '29',
+            '@ДИ' => '@ДС',
+            '@ОГ' => '42',
+            '@ОТ' => '40',
+            '@ОШ' => '28',
+            '@Мпл' => '6',
+            '@Дпл' => '9',
+            '@Дзл' => '11',
+        ];
 		
-		$props = \App\Helpers\VFile::buildProps($vfile->vit_data);
+		// Получаем параметры напрямую из таблицы props
+		$props = Prop::orderBy('sort_order', 'asc')->get()->map(function ($prop) use ($defaultValues) {
+            $propArray = $prop->toArray();
+            if (isset($defaultValues[$propArray['prop_key']])) {
+                $propArray['default'] = $defaultValues[$propArray['prop_key']];
+            }
+            return $propArray;
+        })->toArray();
+		
 		$props = array_chunk($props, 3);
 		
 		$return = compact('vfile', 'props');

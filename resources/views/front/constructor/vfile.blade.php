@@ -5,7 +5,9 @@
 		<h1>Конструктор выкроек</h1>
 		<div class="desk">
 			<div class="preview">
-				<div class="inside"></div>
+				@if ($vfile->image)
+					<div class="item_img" style="background-image: url({{ Storage::url($vfile->image) }});"></div>
+				@endif
 			</div>
 			<div class="panel">
 				<form id="formVfile" action="{{ route('vfiles.generate', $vfile->slug) }}" method="POST">
@@ -19,12 +21,12 @@
 								@foreach ($props[$a] as $prop)
 									<div class="form_group">
 										<label for="p_{{ $prop['id'] }}">
-											{{ $prop['label'] }}
-											@if ($prop['hint'])
-												<a href="#" title="{{ $prop['hint'] }}" class="hint">?</a>
+											{{ $prop['prop_title'] }}
+											@if (isset($prop['prop_hint']))
+												<a href="#" title="{{ $prop['prop_hint'] }}" class="hint">?</a>
 											@endif
 										</label>
-										<input id="p_{{ $prop['id'] }}" type="text" name="measurements[{{ $prop['key'] }}]" data-default="{{ $prop['default'] }}" value="{{ $prop['default'] }}" class="vfile_prop" />
+										<input id="p_{{ $prop['id'] }}" type="text" name="measurements[{{ $prop['prop_key'] }}]" data-default="{{ $prop['default'] ?? '' }}" value="{{ $prop['default'] ?? '' }}" class="vfile_prop" />
 									</div>
 								@endforeach
 							</div>

@@ -38,7 +38,6 @@
 										<th>Изображение</th>
 										<th>Название</th>
 										<th>Цена</th>
-										<th>Параметры</th>
 										<th style="text-align: right;">Действия</th>
 									</tr>
 								</thead>
@@ -53,22 +52,8 @@
 														<p class="title">{{ $rec->title }}</p>
 													</a>
 												</td>
+												<td>{{ $rec->title }}</td>
 												<td>{{ $rec->price }} руб.</td>
-												<td>
-                                                    {{-- Проверяем, что наш массив с параметрами не пустой --}}
-                                                    @if (!empty($rec->parameters))
-                                                        <ul class="list-unstyled mb-0">
-                                                            {{-- Перебираем массив параметров --}}
-                                                            @foreach ($rec->parameters as $parameter)
-                                                                <li>
-                                                                    <small>{{ $parameter['description'] }} (<code>{{ $parameter['name'] }}</code>)</small>
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    @else
-                                                        <span class="text-muted">Нет параметров</span>
-                                                    @endif
-                                                </td>
 												<td style="text-align: right;">
 													<a href="{{ route('admin.vfiles.props', $rec->id) }}" class="badge badge-warning" style="display: none;">
 														<i class="fa fa-cog"></i>
