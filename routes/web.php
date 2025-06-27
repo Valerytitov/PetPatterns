@@ -60,4 +60,8 @@ Route::get('/{slug}', [App\Http\Controllers\PageController::class, 'index'])->na
 
 // Маршрут для отображения страницы конкретной выкройки
 Route::get('/patterns/{vfile:slug}', [\App\Http\Controllers\VfileController::class, 'show'])->name('vfiles.show');
-Route::post('/patterns/{vfile:slug}/generate', [\App\Http\Controllers\VfileController::class, 'generate'])->name('vfiles.generate');
+Route::post('/patterns/{vfile:slug}/generate', [\App\Http\Controllers\VfileController::class, 'generatePdf'])->name('vfiles.generate');
+
+Route::get('/test-flash', function() {
+    return back()->with('success', 'Тестовое сообщение!');
+});

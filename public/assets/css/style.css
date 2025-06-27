@@ -669,3 +669,131 @@ footer nav li a:hover::after, footer nav li a.active:after {
     font-size:24px;
   }
 }
+
+/* Конструктор */
+.constructor {
+    padding: 40px 0;
+}
+
+.constructor_container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.measurements_form {
+    margin-top: 30px;
+}
+
+.measurements_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form_group {
+    margin-bottom: 20px;
+}
+
+.form_group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form_group small {
+    display: block;
+    color: #666;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.input_group {
+    display: flex;
+    align-items: stretch;
+}
+
+.form_control {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+}
+
+.input_group_append {
+    display: flex;
+    align-items: center;
+}
+
+.input_group_text {
+    padding: 10px 15px;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    color: #495057;
+}
+
+.form_actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.alert {
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.alert h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.alert ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .measurements_grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .constructor_container {
+        padding: 20px;
+    }
+    
+    .form_actions {
+        flex-direction: column;
+    }
+    
+    .form_actions .btn {
+        width: 100%;
+    }
+}
