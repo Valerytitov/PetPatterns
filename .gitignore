@@ -40,3 +40,25 @@ auth.json
 
 # Не добавлять наши выкройки в репозиторий
 /storage/app/vfiles/
+
+# Docker data
+/docker/db_data/
+
+# Valentina config/logs
+.config/Valentina*
+ValentinaTeam/
+Valentina Help*.txt
+
+# Временные и вспомогательные файлы
+*.log
+*.tmp
+*.bak
+
+# Исходники движка (если не нужны в репозитории)
+valentina-src/
+
+# Сборка new.txt и прочий мусор
+Сборка new.txt
+"\320\241\320\261\320\276\321\200\320\272\320\260 new.txt"
+*.cache-8
+*.TAG
