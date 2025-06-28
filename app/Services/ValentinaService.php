@@ -77,15 +77,25 @@ class ValentinaService
 
     /**
      * Выполняет двухшаговый процесс: valentina (layout) -> pdfposter (tiling).
-     * ФИНАЛЬНАЯ ВЕРСИЯ
+     * ВЕРСИЯ С ОПТИМИЗАЦИЕЙ КОМПОНОВКИ И ОТСТУПОВ
      */
     private function runGenerationProcess(string $valFilePath, string $vitFilePath, string $outputDirectory, string $outputFilename): string
     {
-        // Путь к финальному нарезанному PDF
+        $largeLayoutPdf = $outputDirectory . '/' . $outputFilename . '.pdf';
         $finalTiledPdf = storage_path('app/public/generated/' . $outputFilename . '.pdf');
         File::ensureDirectoryExists(dirname($finalTiledPdf));
 
-        // Запускаем Valentina через виртуальный экран
+        // Удаляем только .pattern.val.lock до запуска Valentina
+        @unlink($outputDirectory . '/.pattern.val.lock');
+
+        // Устанавливаем права на временную папку и файлы
+        @chmod($outputDirectory, 0777);
+        @chmod($valFilePath, 0666);
+        @chmod($vitFilePath, 0666);
+        if (file_exists($largeLayoutPdf)) {
+            @chmod($largeLayoutPdf, 0666);
+        }
+
         $valentinaProcess = new Process([
             'xvfb-run', '--auto-servernum',
             'valentina',
@@ -93,44 +103,37 @@ class ValentinaService
             '-f', '1',
             '-m', $vitFilePath,
             '-d', $outputDirectory,
-            '-b', $outputFilename, // Используем чистое имя, valentina сама добавит суффиксы
+            '-b', basename($largeLayoutPdf, '.pdf'),
+            '-u',
+            '-l', 'cm',
+            '-G', '0.5',
             $valFilePath,
         ]);
         $valentinaProcess->setTimeout(300);
         $valentinaProcess->run();
-
-        // Проверяем, что процесс завершился без кода ошибки
+        
+        \Log::info('Valentina output', [
+            'output' => $valentinaProcess->getOutput(),
+            'error' => $valentinaProcess->getErrorOutput(),
+            'exit_code' => $valentinaProcess->getExitCode()
+        ]);
         if (!$valentinaProcess->isSuccessful()) {
             throw new ProcessFailedException($valentinaProcess);
         }
 
-        // --- НАДЕЖНЫЙ ПОИСК РЕЗУЛЬТАТА ---
-        $pdfFileFound = '';
-        $filesInRunDirectory = File::files($outputDirectory);
-        foreach ($filesInRunDirectory as $file) {
-            // Ищем первый попавшийся PDF файл в папке
-            if (str_ends_with(strtolower($file->getFilename()), '.pdf')) {
-                $pdfFileFound = $file->getPathname();
-                break;
-            }
-        }
+        // Удаляем только .pattern.val.lock после запуска Valentina
+        @unlink($outputDirectory . '/.pattern.val.lock');
 
-        // Если после успешного выполнения valentina мы не нашли PDF - это ошибка
-        if (empty($pdfFileFound)) {
-            throw new \Exception('Valentina process completed but did not create any PDF file.');
-        }
-        // ------------------------------------
-
-        // Запускаем pdfposter с НАЙДЕННЫМ файлом
-        $pdfposterProcess = new Process([
-            'pdfposter',
-            '-s1',
-            $pdfFileFound, // <-- Используем путь к реально существующему файлу
-            $finalTiledPdf,
-        ]);
-        $pdfposterProcess->setTimeout(180);
-        $pdfposterProcess->mustRun();
+        // Временно отключаем pdfposterProcess для отладки Valentina
+        // $pdfposterProcess = new Process([
+        //     'pdfposter',
+        //     '-s1',
+        //     $largeLayoutPdf,
+        //     $finalTiledPdf,
+        // ]);
+        // $pdfposterProcess->setTimeout(180);
+        // $pdfposterProcess->mustRun();
         
-        return $finalTiledPdf;
+        return $largeLayoutPdf;
     }
 }

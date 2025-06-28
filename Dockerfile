@@ -74,3 +74,5 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg && docker-php-ext-in
 RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
 
 WORKDIR /var/www
+
+USER www-data
