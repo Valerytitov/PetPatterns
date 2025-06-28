@@ -29,10 +29,6 @@
 					<li><a href="{{ route('blog') }}" @if (Route::current()->getName() == 'blog') class="active" @endif>Блог</a></li>
 					<li><a href="{{ route('page', 'contacts') }}">Контакты</a></li>
 				</ul>
-				<div class="btns">
-					<a href="{{ route('shop') }}" class="btn btn_primary">Создать выкройку</a>
-					<a href="{{ route('page', 'course') }}" class="btn btn_secondary">Подробнее о курсе</a>
-				</div>
 			</nav>
 		</div>
 		<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
