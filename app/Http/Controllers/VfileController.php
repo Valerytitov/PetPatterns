@@ -48,7 +48,8 @@ class VfileController extends Controller
             $pdfPath = $this->valentinaService->generatePdf($vfile, $measurements);
             // Путь для ссылки относительно public
             $publicPath = '/storage/generated/' . basename($pdfPath);
-            return back()->with('success', 'PDF успешно сгенерирован! <a href="' . $publicPath . '" target="_blank">Скачать PDF</a>');
+            $downloadLink = '<a href="' . $publicPath . '" target="_blank" class="btn btn-success">Скачать PDF</a>';
+            return back()->with('success', 'PDF успешно сгенерирован! ' . $downloadLink);
         } catch (\Throwable $e) {
             Log::error('Ошибка генерации PDF: ' . $e->getMessage(), ['exception' => $e]);
             return back()->with('error', 'Ошибка генерации PDF: ' . $e->getMessage());
