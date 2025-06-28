@@ -50,12 +50,18 @@ class ValentinaService
         $pdfPath = $this->runGenerationProcess($valFilePath, $vitFilePath, $runDirectory, $outputFilename);
         \Log::info('Generation process completed', ['pdf_path' => $pdfPath]);
         
+        // --- Копируем PDF в постоянную папку ---
+        $permanentPdfPath = storage_path('app/public/generated/' . $outputFilename . '_1.pdf');
+        File::ensureDirectoryExists(dirname($permanentPdfPath));
+        File::copy($pdfPath, $permanentPdfPath);
+        \Log::info('PDF copied to permanent location', ['permanent_path' => $permanentPdfPath]);
+        
         // --- Очистка ---
         // Удаляем временную папку со всеми файлами (.vit, _layout.pdf)
         File::deleteDirectory($runDirectory);
         \Log::info('Cleaned up temp directory');
         
-        return $pdfPath;
+        return $permanentPdfPath;
     }
 
     /**
