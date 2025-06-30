@@ -62,3 +62,7 @@ valentina-src/
 "\320\241\320\261\320\276\321\200\320\272\320\260 new.txt"
 *.cache-8
 *.TAG
+
+# GitHub Actions workflows
+!.github/
+!.github/workflows/
