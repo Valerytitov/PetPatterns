@@ -22,7 +22,7 @@ class VfileController extends Controller
      */
     public function show(Vfile $vfile)
     {
-        return view('front.constructor.show', compact('vfile'));
+        return view('front.patterns.single', compact('vfile'));
     }
     
     /**

@@ -46,14 +46,10 @@
 	<main>
 		<div class="container pt-2">
 			@if(session('success'))
-				<div class="alert alert-success" role="alert">
-					{{ session('success') }}
-				</div>
+				{{-- Удаляю глобальный верхний alert-success, чтобы не дублировать сообщения на страницах конструктора --}}
 			@endif
 			@if(session('error'))
-				<div class="alert alert-danger" role="alert">
-					{{ session('error') }}
-				</div>
+				{{-- Удаляю глобальный верхний alert-danger, чтобы не дублировать сообщения на страницах конструктора --}}
 			@endif
 			@yield('content')
 		</div>

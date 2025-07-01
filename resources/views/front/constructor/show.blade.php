@@ -11,7 +11,7 @@
                 <a href="{{ route('shop') }}" title="Магазин">Магазин</a>
             </li>
             <li>
-                <a href="{{ route('patterns.show', $vfile) }}" title="{{ $vfile->title }}">{{ $vfile->title }}</a>
+                <a href="{{ route('vfiles.show', $vfile) }}" title="{{ $vfile->title }}">{{ $vfile->title }}</a>
             </li>
             <li class="active">Конструктор</li>
         </ul>
@@ -37,7 +37,7 @@
                 @csrf
                 
                 {{-- Проверяем, есть ли у выкройки параметры --}}
-                @if($vfile->parameters->isNotEmpty())
+                @if(!empty($vfile->parameters) && collect($vfile->parameters)->isNotEmpty())
                     <div class="measurements_grid">
                         {{-- В цикле выводим по одному полю для каждой необходимой мерки --}}
                         @foreach($vfile->parameters as $parameter)
@@ -67,7 +67,7 @@
 
                     <div class="form_actions">
                         <button type="submit" class="btn btn_primary">Создать выкройку</button>
-                        <a href="{{ route('patterns.show', $vfile) }}" class="btn btn_secondary">Вернуться к выкройке</a>
+                        <a href="{{ route('vfiles.show', $vfile) }}" class="btn btn_secondary">Вернуться к выкройке</a>
                     </div>
                 @else
                     <div class="alert alert-warning">
