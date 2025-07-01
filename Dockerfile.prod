@@ -1,33 +1,10 @@
-# ЭТАП 1: Сборщик Valentina
-FROM ubuntu:22.04 AS builder
-
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update \
-    && apt-get upgrade -y \
-    && apt-get install -y --no-install-recommends \
-        build-essential \
-        git \
-        cmake \
-        pkg-config \
-        qtbase5-dev \
-        libqt5svg5-dev \
-        qttools5-dev \
-        qttools5-dev-tools \
-        libqt5xmlpatterns5-dev \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-COPY valentina-src/ /src/
-WORKDIR /src
-RUN mkdir build && cd build && qmake ../Valentina.pro -r "CONFIG+=noTests noRunPath no_ccache noDebugSymbols" && make -j$(nproc)
-
-# ЭТАП 2: Composer для PHP-зависимостей (production)
+# ЭТАП 1: Composer для PHP-зависимостей (production)
 FROM composer:2 AS composer
 WORKDIR /app
 COPY composer.json composer.lock ./
 RUN composer install --no-dev --prefer-dist --optimize-autoloader
 
-# ЭТАП 3: Финальный образ (production)
+# ЭТАП 2: Финальный образ (production)
 FROM php:8.2-fpm
 
 RUN apt-get update \
@@ -54,10 +31,13 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-COPY --from=builder /src/build/src/app/valentina/bin/valentina /usr/local/bin/valentina
-COPY --from=builder /src/build/src/libs/vpropertyexplorer/bin/libvpropertyexplorer.so* /usr/local/lib/
-COPY --from=builder /src/build/src/libs/qmuparser/bin/libqmuparser.so* /usr/local/lib/
+ARG VAL_ARCH=amd64
+ENV VAL_ARCH=${VAL_ARCH}
 
+# Копируем готовый бинарник и библиотеки Valentina из bin/
+COPY bin/valentina-${VAL_ARCH} /usr/local/bin/valentina
+COPY bin/libvpropertyexplorer-${VAL_ARCH}.so /usr/local/lib/libvpropertyexplorer.so
+COPY bin/libqmuparser-${VAL_ARCH}.so /usr/local/lib/libqmuparser.so
 RUN ldconfig && chmod +x /usr/local/bin/valentina
 
 ENV XDG_RUNTIME_DIR=/tmp/runtime-www-data

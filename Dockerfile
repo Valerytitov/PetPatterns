@@ -50,10 +50,13 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 WORKDIR /var/www
 
+ARG VAL_ARCH=arm64
+ENV VAL_ARCH=${VAL_ARCH}
+
 # Копируем valentina и .so из bin/
-COPY bin/valentina /usr/local/bin/valentina
-COPY bin/libvpropertyexplorer.so* /usr/local/lib/
-COPY bin/libqmuparser.so* /usr/local/lib/
+COPY bin/valentina-${VAL_ARCH} /usr/local/bin/valentina
+COPY bin/libvpropertyexplorer-${VAL_ARCH}.so /usr/local/lib/libvpropertyexplorer.so
+COPY bin/libqmuparser-${VAL_ARCH}.so /usr/local/lib/libqmuparser.so
 RUN ldconfig && chmod +x /usr/local/bin/valentina
 
 # Копируем зависимости Composer
