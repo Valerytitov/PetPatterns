@@ -31,6 +31,10 @@ jobs:
         id: version
         run: echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
 
+      - name: Set lowercase owner
+        id: lcowner
+        run: echo "LCOWNER=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
       - name: Build and push Docker image (production)
         uses: docker/build-push-action@v5
         with:
@@ -39,8 +43,8 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: |
-            ghcr.io/${{ toLower(github.repository_owner) }}/petpatterns:${{ env.VERSION }}
-            ghcr.io/${{ toLower(github.repository_owner) }}/petpatterns:${{ github.sha }}
+            ghcr.io/${{ env.LCOWNER }}/petpatterns:${{ env.VERSION }}
+            ghcr.io/${{ env.LCOWNER }}/petpatterns:${{ github.sha }}
 
       - name: Create git tag if not exists
         run: |
