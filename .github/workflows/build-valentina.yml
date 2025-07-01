@@ -1,0 +1,60 @@
+name: Build Valentina binary (amd64)
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'valentina-src/**'
+      - '.github/workflows/build-valentina.yml'
+
+jobs:
+  build-valentina:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential git cmake pkg-config \
+            qtbase5-dev libqt5svg5-dev qttools5-dev qttools5-dev-tools libqt5xmlpatterns5-dev
+
+      - name: Prepare build dir
+        run: |
+          mkdir -p build
+          cd build
+          qmake ../valentina-src/Valentina.pro -r "CONFIG+=noTests noRunPath no_ccache noDebugSymbols"
+          make -j$(nproc)
+
+      - name: Copy and rename binaries to bin/ with -amd64 suffix
+        run: |
+          cp build/src/app/valentina/bin/valentina bin/valentina-amd64
+          cp build/src/libs/vpropertyexplorer/bin/libvpropertyexplorer.so bin/libvpropertyexplorer-amd64.so
+          cp build/src/libs/qmuparser/bin/libqmuparser.so bin/libqmuparser-amd64.so
+
+      - name: Set up git user
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create or update branch for binaries
+        run: |
+          git fetch origin build/valentina-update:build/valentina-update || true
+          git checkout -B build/valentina-update
+          git add bin/valentina-amd64 bin/libvpropertyexplorer-amd64.so bin/libqmuparser-amd64.so
+          git commit -m "build(valentina): update amd64 binaries [ci skip]" || echo "No changes to commit"
+          git push origin build/valentina-update
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "build(valentina): update amd64 binaries [ci skip]"
+          branch: build/valentina-update
+          title: "build(valentina): update amd64 binaries"
+          body: "Автоматически сгенерированный PR: новые amd64 бинарники Valentina (с суффиксом -amd64). Проверь и смёрджи, если всё ок."
+          base: main 
