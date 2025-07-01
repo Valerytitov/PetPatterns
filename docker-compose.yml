@@ -2,6 +2,7 @@ services:
   # Сервис для Laravel приложения (PHP-FPM)
   app:
     platform: linux/arm64
+    image: petpatterns-app:latest # Явно задаем имя и тег
     build:
       context: .
       dockerfile: Dockerfile
@@ -55,7 +56,7 @@ services:
 
   worker:
     # Используем тот же самый образ, что и для основного приложения
-    image: petpatterns-app 
+    image: petpatterns-app:latest # Теперь эта ссылка абсолютно надежна
     container_name: petpatterns-worker-container
     
     # Политика перезапуска: всегда перезапускать, если контейнер упал
