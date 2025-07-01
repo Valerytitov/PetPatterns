@@ -39,8 +39,8 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: |
-            ghcr.io/${{ github.repository_owner,, }}/petpatterns:${{ env.VERSION }}
-            ghcr.io/${{ github.repository_owner,, }}/petpatterns:${{ github.sha }}
+            ghcr.io/${{ toLower(github.repository_owner) }}/petpatterns:${{ env.VERSION }}
+            ghcr.io/${{ toLower(github.repository_owner) }}/petpatterns:${{ github.sha }}
 
       - name: Create git tag if not exists
         run: |
