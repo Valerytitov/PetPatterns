@@ -23,6 +23,14 @@ jobs:
             build-essential git cmake pkg-config \
             qtbase5-dev libqt5svg5-dev qttools5-dev qttools5-dev-tools libqt5xmlpatterns5-dev
 
+      - name: Install gdown
+        run: pip install gdown
+
+      - name: Download valentina-src from Google Drive
+        run: |
+          gdown --id 10YQHYzL_y-loUt4aMulgJu78CMDNCER4
+          unzip valentina-src.zip
+
       - name: Prepare build dir
         run: |
           mkdir -p build
