@@ -1,11 +1,15 @@
 services:
   # Сервис для Laravel приложения (PHP-FPM)
   app:
-    platform: linux/amd64
+    platform: linux/arm64
+    image: petpatterns-app:latest # Явно задаем имя и тег
     build:
       context: .
       dockerfile: Dockerfile
     container_name: petpatterns-app
+    # ВАЖНО: Эта команда исправляет права доступа при каждом запуске контейнера.
+    # Это решает ошибку "Failed to lock file".
+    command: sh -c "chmod -R 777 /var/www/storage /var/www/bootstrap/cache && php-fpm"
     restart: unless-stopped
     working_dir: /var/www
     volumes:
@@ -15,6 +19,7 @@ services:
     dns:
       - 8.8.8.8
       - 8.8.4.4
+    user: "www-data"
 
   # Сервис для веб-сервера Nginx
   nginx:
@@ -40,14 +45,41 @@ services:
     environment:
       MYSQL_DATABASE: ${DB_DATABASE:-petpatterns_db}
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-secret}
-      MYSQL_PASSWORD: ${DB_PASSWORD:-secret}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-012345678}
       MYSQL_USER: ${DB_USERNAME:-user}
     volumes:
       - ./docker/db_data:/var/lib/mysql
     ports:
-      - "3307:3306" # Пробрасываем порт 3307, чтобы не конфликтовать с локальным MySQL от MAMP
+      - "3306:3306" # Пробрасываем порт 3307, чтобы не конфликтовать с локальным MySQL от MAMP
     networks:
       - petpatterns-network
+
+  worker:
+    # Используем тот же самый образ, что и для основного приложения
+    image: petpatterns-app:latest # Теперь эта ссылка абсолютно надежна
+    container_name: petpatterns-worker-container
+    
+    # Политика перезапуска: всегда перезапускать, если контейнер упал
+    restart: unless-stopped
+    
+    # Команда, которую выполняет этот контейнер: запуск обработчика очереди
+    # --sleep=3: ждать 3 секунды перед проверкой новой задачи, чтобы не нагружать процессор
+    # --tries=3: пытаться выполнить "упавшую" задачу 3 раза
+    command: php artisan queue:work --sleep=3 --tries=3 --timeout=360
+    
+    # Пробрасываем код проекта, как и в основном app-контейнере
+    volumes:
+      - ./:/var/www
+      
+    # Подключаем к той же сети
+    networks:
+      - petpatterns-network # У вас может быть другое имя сети
+      
+    # Запускаем после того, как будут готовы app и db
+    depends_on:
+      - app
+      - db
+    user: "www-data"
 
 networks:
   petpatterns-network:

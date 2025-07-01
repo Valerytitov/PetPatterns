@@ -18,5 +18,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $this->call([
+            PropSeeder::class,
+            // Добавляй сюда другие сидеры по мере необходимости
+        ]);
     }
 }

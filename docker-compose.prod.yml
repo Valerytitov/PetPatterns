@@ -1,0 +1,40 @@
+services:
+  app:
+    image: ghcr.io/<ORG_OR_USER>/petpatterns:${TAG:-latest}
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./storage:/var/www/storage
+      - ./bootstrap/cache:/var/www/bootstrap/cache
+    depends_on:
+      - db
+    networks:
+      - petpatterns-network
+
+  db:
+    image: mysql:8.0
+    restart: always
+    env_file:
+      - .env  # Best practice: все переменные берутся из .env
+    volumes:
+      - ./docker/db_data:/var/lib/mysql
+    networks:
+      - petpatterns-network
+
+  nginx:
+    image: nginx:alpine
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public:/var/www/public:ro
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+    networks:
+      - petpatterns-network
+
+networks:
+  petpatterns-network:
+    driver: bridge 

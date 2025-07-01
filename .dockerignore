@@ -1,0 +1,13 @@
+# Исключаем лишнее из Docker build context
+.git
+node_modules
+storage/logs
+storage/framework
+.env
+*.md
+*.log
+docker/db_data
+valentina-src/
+.DS_Store
+.idea
+.vscode 

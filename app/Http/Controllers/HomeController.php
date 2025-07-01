@@ -51,13 +51,12 @@ class HomeController extends Controller {
 	}
 	
 	public function constructor_use($id, Request $request) {
-		
-		shell_exec('/usr/bin/python3 /var/www/html/pscript/test.py');
+        // shell_exec('/usr/bin/python3 /var/www/html/pscript/test.py');
 
-		$vfile = Vfile::find($id);
-		if (!$vfile) {
-			abort(404);
-		}
+        $vfile = Vfile::find($id);
+        if (!$vfile) {
+            abort(404);
+        }
 
         $defaultValues = [
             '@ДС' => '29',

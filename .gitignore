@@ -6,7 +6,6 @@
 /.fleet
 /.nova
 
-
 # Зависимости
 /node_modules
 /vendor

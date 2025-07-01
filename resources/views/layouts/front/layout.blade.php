@@ -29,10 +29,6 @@
 					<li><a href="{{ route('blog') }}" @if (Route::current()->getName() == 'blog') class="active" @endif>Блог</a></li>
 					<li><a href="{{ route('page', 'contacts') }}">Контакты</a></li>
 				</ul>
-				<div class="btns">
-					<a href="{{ route('shop') }}" class="btn btn_primary">Создать выкройку</a>
-					<a href="{{ route('page', 'course') }}" class="btn btn_secondary">Подробнее о курсе</a>
-				</div>
 			</nav>
 		</div>
 		<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
@@ -48,7 +44,13 @@
 		</svg>
 	</header>
 	<main>
-		<div class="container">
+		<div class="container pt-2">
+			@if(session('success'))
+				{{-- Удаляю глобальный верхний alert-success, чтобы не дублировать сообщения на страницах конструктора --}}
+			@endif
+			@if(session('error'))
+				{{-- Удаляю глобальный верхний alert-danger, чтобы не дублировать сообщения на страницах конструктора --}}
+			@endif
 			@yield('content')
 		</div>
 	</main>

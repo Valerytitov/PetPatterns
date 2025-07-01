@@ -2,40 +2,57 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Jobs\GeneratePatternPdfJob;
 use App\Models\Vfile;
-use App\Services\ValentinaService; // <-- Добавляем наш новый сервис
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
+use App\Services\ValentinaService;
+use Illuminate\Support\Facades\Log; // Добавим для логирования
 
 class VfileController extends Controller
 {
-    /**
-     * Отображает страницу конкретной выкройки.
-     */
-    public function show(Vfile $vfile)
+    protected ValentinaService $valentinaService;
+
+    public function __construct(ValentinaService $valentinaService)
     {
-        $title = $vfile->title;
-        return view('front.patterns.single', compact('vfile', 'title'));
+        $this->valentinaService = $valentinaService;
     }
 
     /**
-     * Генерирует PDF-файл выкройки на основе пользовательских параметров.
+     * Отображает страницу выкройки с формой ввода мерок
      */
-    public function generate(Request $request, Vfile $vfile, ValentinaService $valentina)
+    public function show(Vfile $vfile)
+    {
+        return view('front.patterns.single', compact('vfile'));
+    }
+    
+    /**
+     * Валидирует данные и отправляет задачу на генерацию PDF в очередь.
+     */
+    public function generatePdf(Request $request, Vfile $vfile)
     {
         $validated = $request->validate([
-            'measurements' => ['required', 'array'],
-            'measurements.*' => ['required'],
+            'measurements' => 'required|array',
+            'measurements.*' => [
+                'required',
+                function ($attribute, $value, $fail) {
+                    if (is_numeric($value) && $value >= 1) { return; }
+                    if (is_string($value) && str_starts_with($value, '@')) { return; }
+                    $fail('Поле должно содержать число (например, 25.5) или формулу (например, @a_длина).');
+                }
+            ],
         ]);
+        
+        $measurements = $validated['measurements'];
 
-        $outputPdfPath = $valentina->generatePdf($vfile, $validated['measurements']);
-
-        if ($outputPdfPath) {
-            return response()->download($outputPdfPath)->deleteFileAfterSend(true);
-        } else {
-            // Логирование уже происходит внутри сервиса, здесь просто возвращаем ошибку
-            return back()->withErrors(['error' => 'Не удалось сгенерировать PDF. Пожалуйста, обратитесь в поддержку.']);
+        try {
+            $pdfPath = $this->valentinaService->generatePdf($vfile, $measurements);
+            // Путь для ссылки относительно public
+            $publicPath = '/storage/generated/' . basename($pdfPath);
+            $downloadLink = '<a href="' . $publicPath . '" target="_blank" class="btn btn-success">Скачать PDF</a>';
+            return back()->with('success', 'PDF успешно сгенерирован! ' . $downloadLink);
+        } catch (\Throwable $e) {
+            Log::error('Ошибка генерации PDF: ' . $e->getMessage(), ['exception' => $e]);
+            return back()->with('error', 'Ошибка генерации PDF: ' . $e->getMessage());
         }
     }
 }
