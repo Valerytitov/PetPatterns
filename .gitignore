@@ -40,3 +40,13 @@ auth.json
 
 # Не добавлять наши выкройки в репозиторий
 /storage/app/vfiles/
+
+# Docker/MySQL data
+docker/db_data/
+
+# Конфиги и временные файлы Valentina
+.config/
+valentina-src/
+
+# Сборочные артефакты
+bin/
