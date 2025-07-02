@@ -49,3 +49,8 @@ valentina-src/
 
 # Сборочные артефакты
 bin/
+
+# Разрешаем коммитить amd64-бинарники для CI
+!bin/valentina-amd64
+!bin/libvpropertyexplorer-amd64.so
+!bin/libqmuparser-amd64.so
