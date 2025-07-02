@@ -20,6 +20,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/control', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 
     Route::get('/control/orders', [App\Http\Controllers\AdminOrderController::class, 'index'])->name('admin.orders');
+    Route::get('/control/orders/create', [App\Http\Controllers\AdminOrderController::class, 'form'])->name('admin.orders.create');
     Route::get('/control/orders/form/{id}', [App\Http\Controllers\AdminOrderController::class, 'form'])->name('admin.orders.form');
     Route::post('/control/orders/form/{id}', [App\Http\Controllers\AdminOrderController::class, 'form'])->name('admin.orders.form');
 
