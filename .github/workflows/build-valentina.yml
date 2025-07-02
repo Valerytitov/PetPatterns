@@ -53,7 +53,7 @@ jobs:
         run: |
           git fetch origin build/valentina-update:build/valentina-update || true
           git checkout -B build/valentina-update
-          git add bin/valentina-amd64 bin/libvpropertyexplorer-amd64.so bin/libqmuparser-amd64.so
+          git add -f bin/valentina-amd64 bin/libvpropertyexplorer-amd64.so bin/libqmuparser-amd64.so
           git commit -m "build(valentina): update amd64 binaries [ci skip]" || echo "No changes to commit"
           git push origin build/valentina-update
 
