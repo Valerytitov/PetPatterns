@@ -22,7 +22,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/control/orders', [App\Http\Controllers\AdminOrderController::class, 'index'])->name('admin.orders');
     Route::get('/control/orders/create', [App\Http\Controllers\AdminOrderController::class, 'form'])->name('admin.orders.create');
     Route::get('/control/orders/form/{id}', [App\Http\Controllers\AdminOrderController::class, 'form'])->name('admin.orders.form');
-    Route::post('/control/orders/form/{id}', [App\Http\Controllers\AdminOrderController::class, 'form'])->name('admin.orders.form');
+    Route::post('/control/orders/form/{id}', [App\Http\Controllers\AdminOrderController::class, 'form']);
 
     Route::get('/control/vfiles', [App\Http\Controllers\AdminVfileController::class, 'index'])->name('admin.vfiles');
     Route::get('/control/vfiles/form/{id?}', [App\Http\Controllers\AdminVfileController::class, 'form'])->name('admin.vfiles.form');
