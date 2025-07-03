@@ -9,7 +9,7 @@ services:
     container_name: petpatterns-app
     # ВАЖНО: Эта команда исправляет права доступа при каждом запуске контейнера.
     # Это решает ошибку "Failed to lock file".
-    command: sh -c "chmod -R 777 /var/www/storage /var/www/bootstrap/cache && php-fpm"
+    command: ["/bin/sh", "-c", "php artisan migrate --seed --force && php-fpm"]
     restart: unless-stopped
     working_dir: /var/www
     volumes:
@@ -20,6 +20,10 @@ services:
       - 8.8.8.8
       - 8.8.4.4
     user: "www-data"
+    env_file:
+      - .env
+    depends_on:
+      - db
 
   # Сервис для веб-сервера Nginx
   nginx:
