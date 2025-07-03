@@ -150,27 +150,6 @@ class ValentinaService
         }
         \Log::info('PDF file found successfully');
 
-        // --- pdfposter временно отключён ---
-        // $pdfPosterProcess = new Process([
-        //     'pdfposter',
-        //     '-s1',
-        //     $actualPdfPath,
-        //     $tiledPdf
-        // ]);
-        // $pdfPosterProcess->setTimeout(300);
-        // $pdfPosterProcess->run();
-        // if (!$pdfPosterProcess->isSuccessful()) {
-        //     \Log::error('pdfposter failed', [
-        //         'output' => $pdfPosterProcess->getOutput(),
-        //         'error' => $pdfPosterProcess->getErrorOutput(),
-        //     ]);
-        //     return $actualPdfPath;
-        // }
-        // if (!file_exists($tiledPdf)) {
-        //     throw new \Exception('pdfposter не создал итоговый PDF.');
-        // }
-        // \Log::info('runGenerationProcess completed with tiling', ['return_path' => $tiledPdf]);
-        // return $tiledPdf;
         \Log::info('runGenerationProcess completed (tiled mode Valentina only)', ['return_path' => $actualPdfPath]);
         return $actualPdfPath;
     }
