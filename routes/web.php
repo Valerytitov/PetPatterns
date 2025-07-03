@@ -44,8 +44,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/payment/test', [App\Http\Controllers\PaymentController::class, 'test'])->name('payment.test');
-Route::get('/payment/result/{status}', [App\Http\Controllers\PaymentController::class, 'result_page'])->name('payment.result');
-Route::post('/payment/result', [App\Http\Controllers\PaymentController::class, 'transaction'])->name('payment.result');
+Route::match(['get', 'post'], '/payment/result', [App\Http\Controllers\PaymentController::class, 'result'])->name('payment.result');
 
 Route::get('/constructor', [App\Http\Controllers\HomeController::class, 'constructor'])->name('constructor');
 Route::get('/constructor/{id}', [App\Http\Controllers\HomeController::class, 'constructor_use'])->name('constructor.use');
