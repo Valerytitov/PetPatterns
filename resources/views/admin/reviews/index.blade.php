@@ -10,7 +10,7 @@
 					<h1>Список отзывов</h1>
 				</div>
 				<div class="col-sm-6 text-right">
-					<a href="{{ route('admin.reviews.form', 0) }}" class="btn btn-primary">Добавить</a> 
+					<a href="{{ route('admin.reviews.form.create') }}" class="btn btn-primary">Добавить</a> 
 				</div>
 			</div>
 		</div>

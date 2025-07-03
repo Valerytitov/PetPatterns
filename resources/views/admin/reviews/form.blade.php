@@ -17,7 +17,7 @@
 	</section>
 	<section class="content">
 		<div class="container-fluid">
-			<form action="{{ route('admin.reviews.form', $id) }}" method="POST" enctype="multipart/form-data" class="row">
+			<form action="{{ $id == 0 ? route('admin.reviews.form.create') : route('admin.reviews.form.edit', $id) }}" method="POST" enctype="multipart/form-data" class="row">
 				@csrf
 				<div class="col-md-12">
 					@if ($errors->any())							

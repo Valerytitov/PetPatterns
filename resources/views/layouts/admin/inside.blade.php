@@ -91,7 +91,7 @@
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="{{ route('admin.posts.form', 0) }}" class="nav-link @if (Route::current()->getName() == 'admin.posts.form') active @endif">
+									<a href="{{ route('admin.posts.form.create') }}" class="nav-link @if (Route::current()->getName() == 'admin.posts.form') active @endif">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Добавить запись</p>
 									</a>
@@ -114,9 +114,9 @@
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="{{ route('admin.reviews.form', 0) }}" class="nav-link @if (Route::current()->getName() == 'admin.reviews.form') active @endif">
+									<a href="{{ route('admin.reviews.form.create') }}" class="nav-link @if (Route::current()->getName() == 'admin.reviews.form') active @endif">
 										<i class="far fa-circle nav-icon"></i>
-										<p>Добавить</p>
+										<p>Добавить отзыв</p>
 									</a>
 								</li>
 							</ul>
