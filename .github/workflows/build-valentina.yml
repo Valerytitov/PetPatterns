@@ -7,6 +7,9 @@ on:
       - 'valentina-src/**'
       - '.github/workflows/build-valentina.yml'
 
+permissions:
+  contents: write
+
 jobs:
   build-valentina:
     runs-on: ubuntu-latest

@@ -20,23 +20,23 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/control', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 
     Route::get('/control/orders', [App\Http\Controllers\AdminOrderController::class, 'index'])->name('admin.orders');
+    Route::get('/control/orders/create', [App\Http\Controllers\AdminOrderController::class, 'form'])->name('admin.orders.create');
     Route::get('/control/orders/form/{id}', [App\Http\Controllers\AdminOrderController::class, 'form'])->name('admin.orders.form');
-    Route::post('/control/orders/form/{id}', [App\Http\Controllers\AdminOrderController::class, 'form'])->name('admin.orders.form');
+    Route::post('/control/orders/form/{id}', [App\Http\Controllers\AdminOrderController::class, 'form']);
 
     Route::get('/control/vfiles', [App\Http\Controllers\AdminVfileController::class, 'index'])->name('admin.vfiles');
     Route::get('/control/vfiles/form/{id?}', [App\Http\Controllers\AdminVfileController::class, 'form'])->name('admin.vfiles.form');
     Route::post('/control/vfiles/form/{id}', [App\Http\Controllers\AdminVfileController::class, 'form'])->name('admin.vfiles.update');
     Route::post('/control/vfiles/form', [App\Http\Controllers\AdminVfileController::class, 'form'])->name('admin.vfiles.store');
-    Route::get('/control/vfiles/props/{id}', [App\Http\Controllers\AdminVfileController::class, 'props'])->name('admin.vfiles.props');
-    Route::post('/control/vfiles/props/{id}', [App\Http\Controllers\AdminVfileController::class, 'props'])->name('admin.vfiles.props');
+    Route::match(['get', 'post'], '/control/vfiles/props/{id}', [App\Http\Controllers\AdminVfileController::class, 'props'])->name('admin.vfiles.props');
 
     Route::get('/control/posts', [App\Http\Controllers\AdminPostController::class, 'index'])->name('admin.posts');
-    Route::get('/control/posts/form/{id}', [App\Http\Controllers\AdminPostController::class, 'form'])->name('admin.posts.form');
-    Route::post('/control/posts/form/{id}', [App\Http\Controllers\AdminPostController::class, 'form'])->name('admin.posts.form');
+    Route::get('/control/posts/form/create', [App\Http\Controllers\AdminPostController::class, 'form'])->name('admin.posts.form.create');
+    Route::match(['get', 'post'], '/control/posts/form/{id}', [App\Http\Controllers\AdminPostController::class, 'form'])->name('admin.posts.form.edit');
 
     Route::get('/control/reviews', [App\Http\Controllers\AdminReviewController::class, 'index'])->name('admin.reviews');
-    Route::get('/control/reviews/form/{id}', [App\Http\Controllers\AdminReviewController::class, 'form'])->name('admin.reviews.form');
-    Route::post('/control/reviews/form/{id}', [App\Http\Controllers\AdminReviewController::class, 'form'])->name('admin.reviews.form');
+    Route::get('/control/reviews/form/create', [App\Http\Controllers\AdminReviewController::class, 'form'])->name('admin.reviews.form.create');
+    Route::match(['get', 'post'], '/control/reviews/form/{id}', [App\Http\Controllers\AdminReviewController::class, 'form'])->name('admin.reviews.form.edit');
 
     Route::get('/control/delete/{type}/{id}', [App\Http\Controllers\AdminController::class, 'delete'])->name('admin.delete');
 });

@@ -10,7 +10,7 @@
 					<h1>Заказы</h1>
 				</div>
 				<div class="col-sm-6 text-right">
-
+					<a href="{{ route('admin.orders.create') }}" class="btn btn-primary">Добавить заказ</a>
 				</div>
 			</div>
 		</div>

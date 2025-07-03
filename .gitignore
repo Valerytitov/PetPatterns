@@ -46,6 +46,7 @@ docker/db_data/
 # Конфиги и временные файлы Valentina
 .config/
 valentina-src/
+.cache/
 
 # Сборочные артефакты
 bin/

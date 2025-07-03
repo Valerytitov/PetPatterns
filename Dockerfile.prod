@@ -2,7 +2,7 @@
 FROM composer:2 AS composer
 WORKDIR /app
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --prefer-dist --optimize-autoloader
+RUN composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts
 
 # ЭТАП 2: Финальный образ (production)
 FROM php:8.2-fpm
@@ -50,6 +50,13 @@ WORKDIR /var/www
 
 COPY . .
 COPY --from=composer /app/vendor ./vendor
+
+RUN mkdir -p bootstrap/cache \
+    && mkdir -p storage/framework/sessions \
+    && mkdir -p storage/framework/views \
+    && mkdir -p storage/framework/cache/data \
+    && chown -R www-data:www-data storage \
+    && chmod -R 775 storage
 
 # Production-оптимизация Laravel
 RUN php artisan config:cache \
