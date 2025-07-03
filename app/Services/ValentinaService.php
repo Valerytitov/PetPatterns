@@ -22,46 +22,44 @@ class ValentinaService
     public function generatePdf(Vfile $vfile, array $measurements): string
     {
         \Log::info('Starting PDF generation', ['vfile_id' => $vfile->id]);
-        
         // --- Подготовка ---
-        // Создаем временную папку для этой сессии генерации
         $runDirectory = storage_path('app/valentina_run_' . uniqid());
         File::ensureDirectoryExists($runDirectory);
         \Log::info('Created temp directory', ['directory' => $runDirectory]);
 
-        // --- Шаг 1: Копируем .val во временную папку, чтобы избежать проблем с правами ---
-        $originalValContent = Storage::disk('public')->get($vfile->val_file);
-        // Очищаем от тегов, которые могут помешать в CLI-режиме
-        $cleanedValContent = preg_replace('/<watermark[^>]*>.*?<\/watermark>/s', '', $originalValContent);
-        // Также удаляем старую ссылку на файл мерок, т.к. мы передаем его через --mfile
-        $cleanedValContent = preg_replace('/<measurements[^>]*\/>/s', '', $cleanedValContent);
-        $valFilePath = $runDirectory . '/pattern.val';
-        File::put($valFilePath, $cleanedValContent);
+        // --- Шаг 1: Копируем .val во временную папку ---
+        $valFilePath = $this->prepareValFile($vfile, $runDirectory);
         \Log::info('Prepared VAL file', ['path' => $valFilePath]);
 
-        // --- Шаг 2: Подготовка файла мерок .vit на основе шаблона ---
+        // --- Шаг 2: Подготовка файла мерок .vit ---
         $vitFilePath = $this->prepareVitFile($vfile, $measurements, $runDirectory);
         \Log::info('Prepared VIT file', ['path' => $vitFilePath]);
 
-        // --- Шаг 3: Запуск двухшаговой генерации PDF ---
+        // --- Шаг 3: Запуск генерации ---
         $outputFilename = $vfile->slug . '_pattern';
-        \Log::info('Starting generation process', ['output_filename' => $outputFilename]);
-        
-        $pdfPath = $this->runGenerationProcess($valFilePath, $vitFilePath, $runDirectory, $outputFilename);
-        \Log::info('Generation process completed', ['pdf_path' => $pdfPath]);
-        
+        $tempPdfPath = $this->runGenerationProcess($valFilePath, $vitFilePath, $runDirectory, $outputFilename);
+
         // --- Копируем PDF в постоянную папку ---
-        $permanentPdfPath = storage_path('app/public/generated/' . $outputFilename . '_1.pdf');
+        $permanentPdfPath = storage_path('app/public/generated/' . $outputFilename . '.pdf');
         File::ensureDirectoryExists(dirname($permanentPdfPath));
-        File::copy($pdfPath, $permanentPdfPath);
-        \Log::info('PDF copied to permanent location', ['permanent_path' => $permanentPdfPath]);
-        
+        File::copy($tempPdfPath, $permanentPdfPath);
+        \Log::info('PDF copied to permanent location', ['from' => $tempPdfPath, 'to' => $permanentPdfPath]);
+
         // --- Очистка ---
-        // Удаляем временную папку со всеми файлами (.vit, _layout.pdf)
         File::deleteDirectory($runDirectory);
         \Log::info('Cleaned up temp directory');
-        
+
         return $permanentPdfPath;
+    }
+
+    private function prepareValFile(Vfile $vfile, string $runDirectory): string
+    {
+        $originalValContent = Storage::disk('public')->get($vfile->val_file);
+        $cleanedValContent = preg_replace('/<watermark[^>]*>.*?<\/watermark>/s', '', $originalValContent);
+        $cleanedValContent = preg_replace('/<measurements[^>]*\/>/s', '', $cleanedValContent);
+        $valFilePath = $runDirectory . '/pattern.val';
+        File::put($valFilePath, $cleanedValContent);
+        return $valFilePath;
     }
 
     /**
@@ -101,16 +99,11 @@ class ValentinaService
             'output_dir' => $outputDirectory,
             'output_filename' => $outputFilename
         ]);
-        
-        $largeLayoutPdf = $outputDirectory . '/' . $outputFilename . '.pdf';
-        $finalTiledPdf = storage_path('app/public/generated/' . $outputFilename . '.pdf');
-        File::ensureDirectoryExists(dirname($finalTiledPdf));
 
-        // Удаляем только .pattern.val.lock до запуска Valentina
+        $largeLayoutPdf = $outputDirectory . '/' . $outputFilename . '_1.pdf';
+        $tiledPdf = $outputDirectory . '/' . $outputFilename . '_tiled.pdf';
+
         @unlink($outputDirectory . '/.pattern.val.lock');
-        \Log::info('Removed lock file');
-
-        // Устанавливаем права на временную папку и файлы
         @chmod($outputDirectory, 0777);
         @chmod($valFilePath, 0666);
         @chmod($vitFilePath, 0666);
@@ -119,14 +112,16 @@ class ValentinaService
         }
         \Log::info('Set file permissions');
 
+        // --- Valentina ---
         $valentinaProcess = new Process([
             'xvfb-run', '--auto-servernum',
             'valentina',
             '--platform', 'offscreen',
-            '-f', '1',
+            '-f', '33',
+            '--tiledPageformat', '4', // <- ИСПРАВЛЕНО: правильный флаг для формата плитки A4
             '-m', $vitFilePath,
             '-d', $outputDirectory,
-            '-b', basename($largeLayoutPdf, '.pdf'),
+            '-b', $outputFilename,
             '-u',
             '-l', 'cm',
             '-G', '0.5',
@@ -136,60 +131,47 @@ class ValentinaService
         \Log::info('Starting Valentina process');
         $valentinaProcess->run();
         \Log::info('Valentina process finished');
-        
         \Log::info('Valentina output', [
             'output' => $valentinaProcess->getOutput(),
             'error' => $valentinaProcess->getErrorOutput(),
             'exit_code' => $valentinaProcess->getExitCode()
         ]);
-        
-        // Проверяем, что PDF действительно создался (ДО проверки успешности процесса)
-        $expectedPdfPath = $largeLayoutPdf;
-        $actualPdfPath = $outputDirectory . '/' . $outputFilename . '_1.pdf'; // Valentina добавляет _1
-        
-        \Log::info('Checking PDF file existence', [
-            'expected' => $expectedPdfPath,
-            'actual' => $actualPdfPath,
-            'exists' => file_exists($actualPdfPath)
-        ]);
-        
+
+        $actualPdfPath = $largeLayoutPdf;
         if (!file_exists($actualPdfPath)) {
-            // Логируем содержимое папки для отладки
             $files = glob($outputDirectory . '/*');
             \Log::info('Files in output directory', [
                 'directory' => $outputDirectory,
                 'files' => $files,
-                'expected' => $expectedPdfPath,
+                'expected' => $largeLayoutPdf,
                 'actual' => $actualPdfPath
             ]);
             throw new \Exception('PDF файл не был создан. Valentina завершилась с кодом: ' . $valentinaProcess->getExitCode());
         }
-        
         \Log::info('PDF file found successfully');
-        
-        // Если PDF создался, но процесс не успешен - это может быть таймаут, но файл есть
-        if (!$valentinaProcess->isSuccessful()) {
-            \Log::warning('Valentina process not successful, but PDF file exists', [
-                'exit_code' => $valentinaProcess->getExitCode(),
-                'pdf_path' => $actualPdfPath
-            ]);
-            // Не бросаем исключение, если PDF создался
-        }
 
-        // Удаляем только .pattern.val.lock после запуска Valentina
-        @unlink($outputDirectory . '/.pattern.val.lock');
-
-        // Временно отключаем pdfposterProcess для отладки Valentina
-        // $pdfposterProcess = new Process([
+        // --- pdfposter временно отключён ---
+        // $pdfPosterProcess = new Process([
         //     'pdfposter',
         //     '-s1',
-        //     $largeLayoutPdf,
-        //     $finalTiledPdf,
+        //     $actualPdfPath,
+        //     $tiledPdf
         // ]);
-        // $pdfposterProcess->setTimeout(180);
-        // $pdfposterProcess->mustRun();
-        
-        \Log::info('runGenerationProcess completed', ['return_path' => $actualPdfPath]);
-        return $actualPdfPath; // Возвращаем правильный путь к PDF
+        // $pdfPosterProcess->setTimeout(300);
+        // $pdfPosterProcess->run();
+        // if (!$pdfPosterProcess->isSuccessful()) {
+        //     \Log::error('pdfposter failed', [
+        //         'output' => $pdfPosterProcess->getOutput(),
+        //         'error' => $pdfPosterProcess->getErrorOutput(),
+        //     ]);
+        //     return $actualPdfPath;
+        // }
+        // if (!file_exists($tiledPdf)) {
+        //     throw new \Exception('pdfposter не создал итоговый PDF.');
+        // }
+        // \Log::info('runGenerationProcess completed with tiling', ['return_path' => $tiledPdf]);
+        // return $tiledPdf;
+        \Log::info('runGenerationProcess completed (tiled mode Valentina only)', ['return_path' => $actualPdfPath]);
+        return $actualPdfPath;
     }
 }
