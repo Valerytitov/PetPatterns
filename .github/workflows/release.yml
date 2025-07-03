@@ -1,0 +1,27 @@
+name: Auto Tag
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: 'Bump type (patch, minor, major)'
+        required: false
+        default: 'patch'
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up git user
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Auto tag
+        run: |
+          chmod +x .github/scripts/auto-tag.sh
+          .github/scripts/auto-tag.sh ${{ github.event.inputs.bump }} 
