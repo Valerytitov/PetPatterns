@@ -58,6 +58,9 @@ RUN mkdir -p bootstrap/cache \
     && chown -R www-data:www-data storage \
     && chmod -R 775 storage
 
+# Автоматически применяем миграции и сидеры при сборке
+RUN php artisan migrate --seed --force
+
 # Production-оптимизация Laravel
 RUN php artisan config:cache \
     && php artisan route:cache \
