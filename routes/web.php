@@ -35,8 +35,8 @@ Route::middleware(['auth'])->group(function () {
     Route::match(['get', 'post'], '/control/posts/form/{id}', [App\Http\Controllers\AdminPostController::class, 'form'])->name('admin.posts.form.edit');
 
     Route::get('/control/reviews', [App\Http\Controllers\AdminReviewController::class, 'index'])->name('admin.reviews');
-    Route::get('/control/reviews/form/{id}', [App\Http\Controllers\AdminReviewController::class, 'form'])->name('admin.reviews.form');
-    Route::post('/control/reviews/form/{id}', [App\Http\Controllers\AdminReviewController::class, 'form'])->name('admin.reviews.form');
+    Route::get('/control/reviews/form/create', [App\Http\Controllers\AdminReviewController::class, 'form'])->name('admin.reviews.form.create');
+    Route::match(['get', 'post'], '/control/reviews/form/{id}', [App\Http\Controllers\AdminReviewController::class, 'form'])->name('admin.reviews.form.edit');
 
     Route::get('/control/delete/{type}/{id}', [App\Http\Controllers\AdminController::class, 'delete'])->name('admin.delete');
 });
