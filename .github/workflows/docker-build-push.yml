@@ -27,9 +27,9 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Read version
+      - name: Read version from latest tag
         id: version
-        run: echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
+        run: echo "VERSION=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
 
       - name: Set lowercase owner
         id: lcowner
@@ -45,15 +45,6 @@ jobs:
           tags: |
             ghcr.io/${{ env.LCOWNER }}/petpatterns:${{ env.VERSION }}
             ghcr.io/${{ env.LCOWNER }}/petpatterns:${{ github.sha }}
-
-      - name: Create git tag if not exists
-        run: |
-          if ! git rev-parse "v${{ env.VERSION }}" >/dev/null 2>&1; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git tag v${{ env.VERSION }}
-            git push origin v${{ env.VERSION }}
-          fi
 
       - name: Generate changelog
         uses: heinrichreimer/github-changelog-generator-action@v2.3
