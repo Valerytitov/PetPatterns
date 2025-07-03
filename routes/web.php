@@ -31,8 +31,8 @@ Route::middleware(['auth'])->group(function () {
     Route::match(['get', 'post'], '/control/vfiles/props/{id}', [App\Http\Controllers\AdminVfileController::class, 'props'])->name('admin.vfiles.props');
 
     Route::get('/control/posts', [App\Http\Controllers\AdminPostController::class, 'index'])->name('admin.posts');
-    Route::get('/control/posts/form/{id}', [App\Http\Controllers\AdminPostController::class, 'form'])->name('admin.posts.form');
-    Route::post('/control/posts/form/{id}', [App\Http\Controllers\AdminPostController::class, 'form'])->name('admin.posts.form');
+    Route::get('/control/posts/form/create', [App\Http\Controllers\AdminPostController::class, 'form'])->name('admin.posts.form.create');
+    Route::match(['get', 'post'], '/control/posts/form/{id}', [App\Http\Controllers\AdminPostController::class, 'form'])->name('admin.posts.form.edit');
 
     Route::get('/control/reviews', [App\Http\Controllers\AdminReviewController::class, 'index'])->name('admin.reviews');
     Route::get('/control/reviews/form/{id}', [App\Http\Controllers\AdminReviewController::class, 'form'])->name('admin.reviews.form');
