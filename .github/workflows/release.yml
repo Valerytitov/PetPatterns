@@ -1,6 +1,9 @@
 name: Auto Tag
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       bump:
@@ -24,4 +27,7 @@ jobs:
       - name: Auto tag
         run: |
           chmod +x .github/scripts/auto-tag.sh
-          .github/scripts/auto-tag.sh ${{ github.event.inputs.bump }} 
+          if [ -z "${{ github.event.inputs.bump }}" ]; then
+            .github/scripts/auto-tag.sh patch
+          else
+            .github/scripts/auto-tag.sh ${{ github.event.inputs.bump }} 
