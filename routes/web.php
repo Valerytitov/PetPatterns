@@ -28,8 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/control/vfiles/form/{id?}', [App\Http\Controllers\AdminVfileController::class, 'form'])->name('admin.vfiles.form');
     Route::post('/control/vfiles/form/{id}', [App\Http\Controllers\AdminVfileController::class, 'form'])->name('admin.vfiles.update');
     Route::post('/control/vfiles/form', [App\Http\Controllers\AdminVfileController::class, 'form'])->name('admin.vfiles.store');
-    Route::get('/control/vfiles/props/{id}', [App\Http\Controllers\AdminVfileController::class, 'props'])->name('admin.vfiles.props');
-    Route::post('/control/vfiles/props/{id}', [App\Http\Controllers\AdminVfileController::class, 'props'])->name('admin.vfiles.props');
+    Route::match(['get', 'post'], '/control/vfiles/props/{id}', [App\Http\Controllers\AdminVfileController::class, 'props'])->name('admin.vfiles.props');
 
     Route::get('/control/posts', [App\Http\Controllers\AdminPostController::class, 'index'])->name('admin.posts');
     Route::get('/control/posts/form/{id}', [App\Http\Controllers\AdminPostController::class, 'form'])->name('admin.posts.form');
