@@ -8,7 +8,9 @@ latest_tag=$(git tag --list 'v*' --sort=-v:refname | head -n1)
 if [[ -z "$latest_tag" ]]; then
   major=1; minor=0; patch=0
 else
-  IFS='.' read -r major minor patch <<<"${latest_tag#v}"
+  # Удаляем все ведущие v (на всякий случай)
+  clean_tag=$(echo "$latest_tag" | sed 's/^v*//')
+  IFS='.' read -r major minor patch <<<"$clean_tag"
 fi
 
 case "$bump" in
