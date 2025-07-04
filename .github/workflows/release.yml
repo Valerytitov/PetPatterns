@@ -30,4 +30,5 @@ jobs:
           if [ -z "${{ github.event.inputs.bump }}" ]; then
             .github/scripts/auto-tag.sh patch
           else
-            .github/scripts/auto-tag.sh ${{ github.event.inputs.bump }} 
+            .github/scripts/auto-tag.sh ${{ github.event.inputs.bump }}
+          fi 
