@@ -1,6 +1,6 @@
 services:
   app:
-    image: ghcr.io/<ORG_OR_USER>/petpatterns:${TAG:-latest}
+    image: ghcr.io/valerytitov/petpatterns:${TAG:-latest}
     restart: always
     env_file:
       - .env
