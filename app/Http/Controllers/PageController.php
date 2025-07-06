@@ -17,4 +17,10 @@ class PageController extends Controller
         // 3. Исправляем путь к шаблону на стандартный для Laravel
         return view('front.shop.list', $return);
     }
+
+    public function contacts()
+    {
+        $contact = \App\Models\Contact::first();
+        return view('front.contacts', compact('contact'));
+    }
 }

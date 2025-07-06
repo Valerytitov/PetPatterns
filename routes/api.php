@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Webhook от Prodamus
+Route::post('/prodamus/webhook', [\App\Http\Controllers\ProdamusController::class, 'webhook'])->name('prodamus.webhook');

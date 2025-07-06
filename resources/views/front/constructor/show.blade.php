@@ -39,14 +39,12 @@
                 {{-- Проверяем, есть ли у выкройки параметры --}}
                 @if(!empty($vfile->parameters) && collect($vfile->parameters)->isNotEmpty())
                     <div class="measurements_grid">
-                        {{-- В цикле выводим по одному полю для каждой необходимой мерки --}}
                         @foreach($vfile->parameters as $parameter)
                             <div class="form_group">
                                 <label for="{{ $parameter->variable_name }}">
                                     {{ $parameter->description }}
                                     <small class="text-muted">{{ $parameter->name }}</small>
                                 </label>
-                                <div class="input_group">
                                     <input 
                                         type="number" 
                                         step="0.1" 
@@ -54,13 +52,9 @@
                                         name="measurements[{{ $parameter->variable_name }}]" 
                                         id="{{ $parameter->variable_name }}" 
                                         value="{{ old('measurements.' . $parameter->variable_name) }}"
-                                        placeholder="Введите значение" 
+                                    placeholder="Введите значение (см)" 
                                         required
                                     >
-                                    <div class="input_group_append">
-                                        <span class="input_group_text">см</span>
-                                    </div>
-                                </div>
                             </div>
                         @endforeach
                     </div>

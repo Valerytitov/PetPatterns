@@ -31,4 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'prodamus' => [
+        'secret_key' => env('PRODAMUS_SECRET_KEY'),
+    ],
+
 ];

@@ -31,18 +31,14 @@
 		<div class="block_content">
 		<h2>Работы наших учеников</h2>
 		<div class="grid grid_3 grid_gallery">
-			<div class="grid_item" style="background-image: url({{ asset('/uploads/1.jpg') }});"></div>
-			<div class="grid_item" style="background-image: url({{ asset('/uploads/2.png') }});"></div>
-			<div class="grid_item" style="background-image: url({{ asset('/uploads/3.jpg') }});"></div>
-			<div class="grid_item" style="background-image: url({{ asset('/uploads/1.jpg') }});"></div>
-			<div class="grid_item" style="background-image: url({{ asset('/uploads/2.png') }});"></div>
-			<div class="grid_item" style="background-image: url({{ asset('/uploads/3.jpg') }});"></div>
-			<div class="grid_item" style="background-image: url({{ asset('/uploads/1.jpg') }});"></div>
-			<div class="grid_item" style="background-image: url({{ asset('/uploads/2.png') }});"></div>
-			<div class="grid_item" style="background-image: url({{ asset('/uploads/3.jpg') }});"></div>
-			<div class="grid_item" style="background-image: url({{ asset('/uploads/1.jpg') }});"></div>
-			<div class="grid_item" style="background-image: url({{ asset('/uploads/2.png') }});"></div>
-			<div class="grid_item" style="background-image: url({{ asset('/uploads/3.jpg') }});"></div>
+			<div class="grid_item"><img src="{{ asset('PetPatterns-photo/Gemini_Generated_Image_odskomodskomodsk.jpg') }}" alt="AI-art 1"></div>
+			<div class="grid_item"><img src="{{ asset('PetPatterns-photo/Gemini_Generated_Image_odskomodskomodsk__1_.jpg') }}" alt="AI-art 2"></div>
+			<div class="grid_item"><img src="{{ asset('PetPatterns-photo/Gemini_Generated_Image_odskomodskomodsk__2_.jpg') }}" alt="AI-art 3"></div>
+			<div class="grid_item"><img src="{{ asset('PetPatterns-photo/Gemini_Generated_Image_odskomodskomodsk__3_.jpg') }}" alt="AI-art 4"></div>
+			<div class="grid_item"><img src="{{ asset('PetPatterns-photo/Gemini_Generated_Image_odskomodskomodsk__4_.jpg') }}" alt="AI-art 5"></div>
+			<div class="grid_item"><img src="{{ asset('PetPatterns-photo/Gemini_Generated_Image_odskomodskomodsk__5_.jpg') }}" alt="AI-art 6"></div>
+			<div class="grid_item"><img src="{{ asset('PetPatterns-photo/Gemini_Generated_Image_odskomodskomodsk__6_.jpg') }}" alt="AI-art 7"></div>
+			<div class="grid_item"><img src="{{ asset('PetPatterns-photo/Gemini_Generated_Image_odskomodskomodsk__7_.jpg') }}" alt="AI-art 8"></div>
 		</div>
 		</div>
 	</section>
