@@ -19,7 +19,13 @@ class Order extends Model
 		'vit_prepared',
 		'result_files',
 		'status',
+		'email',
+		'sum',
+		'pattern_details',
+	];
 	
+	protected $casts = [
+		'pattern_details' => 'array',
 	];
 	
 	public function vfile() {

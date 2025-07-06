@@ -13,74 +13,77 @@ use App\Models\Order;
 class AdminOrderController extends Controller {
 	
     public function index(Request $request) {
-		
-		$list = Order::orderBy('id', 'desc')->get();
-		
-		$return = compact('list');
-
+        $query = \App\Models\Order::query();
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+        if ($request->filled('email')) {
+            $query->where('email', 'like', '%' . $request->email . '%');
+        }
+        $list = $query->orderBy('id', 'desc')->get();
+        $return = compact('list');
         return view('admin/orders/index', $return);
-
     }
 	
 	public function form($id, Request $request) {
 		
 		$title = 'Добавить ';
-		$rec = new Post;
+		$rec = new \App\Models\Order;
 		
 		if ($id) {
 			
-			$rec = Post::find($id);
+			$rec = \App\Models\Order::find($id);
 			if (!$rec) {
-				return redirect()->route('admin.posts')->with('error', 'Запись не найдена');
+				return redirect()->route('admin.orders')->with('error', 'Заказ не найден');
 			}
 			
 			$title = 'Редактировать ';
 			
 		}
 		
-		$title .= 'запись';
+		$title .= 'заказ';
 		
 		if ($request->isMethod('post')) {
 			
 			$rules = [
-			
-				'slug' => 'required',
-				'title' => 'required',
-				'short' => 'required',
-				'content' => 'required',
-			
+				'status' => 'required',
+				'email' => 'required|email',
 			];
 			
 			$msgs = [
 			 
-				'slug.required' => 'Пожалуйста, укажите URL записи',
-				'slug.unique' => 'Запись с таким URL уже существует, выберите другое!',
-				'title.required' => 'Пожалуйста, укажите заголовок записи',
-				'short.required' => 'Пожалуйста, укажите краткое содержание записи',
-				'content.required' => 'Пожалуйста, введите содержимое записи',
+				'status.required' => 'Пожалуйста, укажите статус заказа',
+				'email.required' => 'Пожалуйста, укажите email',
+				'email.email' => 'Некорректный email',
 			
 			];
-			
-			if (!$id) {
-				$rules['slug'] .= '|unique:posts';
-			}
 			
 			$validator = Validator::make($request->all(), $rules, $msgs);			
 			if ($validator->fails()) {
 				return redirect()->back()->withErrors($validator)->withInput();
 			}
 			
-			$rec->fill($request->all());
+			$rec->fill($request->only(['status', 'email']));
 			$rec->save();
 
-			return redirect()->route('admin.posts')->with('success', 'Сохранено!');
+			return redirect()->route('admin.orders')->with('success', 'Сохранено!');
 			 
 		}
 		
 		$return = compact('id', 'rec', 'title');
 
-		return view('admin/posts/form', $return);
+		return view('admin/orders/form', $return);
 		
 	}
+
+    public function deleteMass(Request $request)
+    {
+        $ids = $request->input('ids', []);
+        if (!is_array($ids) || empty($ids)) {
+            return redirect()->back()->with('error', 'Не выбраны заказы для удаления');
+        }
+        \App\Models\Order::whereIn('id', $ids)->delete();
+        return redirect()->back()->with('success', 'Выбранные заказы удалены!');
+    }
 
 }

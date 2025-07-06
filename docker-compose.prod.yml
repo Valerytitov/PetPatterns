@@ -1,6 +1,9 @@
 services:
   app:
-    image: ghcr.io/valerytitov/petpatterns:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: petpatterns-app:latest
     restart: always
     env_file:
       - .env

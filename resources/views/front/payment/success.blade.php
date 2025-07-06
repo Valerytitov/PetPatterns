@@ -13,6 +13,10 @@
 			<br />
 			Выкройка в формате .PDF будет доступна в течение минуты! Не закрывайте страницу!
 		</p>
-		<a href="#" class="btn btn-primary">Скачать PDF</a>
+		@if(isset($pdf_url))
+			<a href="{{ $pdf_url }}" class="btn btn-primary" target="_blank">Скачать PDF</a>
+		@else
+			<a href="#" class="btn btn-primary disabled">Скачать PDF</a>
+		@endif
 	</section>
 @endsection

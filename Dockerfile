@@ -66,6 +66,6 @@ COPY --from=composer /app/vendor ./vendor
 COPY . .
 
 # Автоматически применяем миграции и сидеры при сборке (dev)
-RUN php artisan migrate --seed
+# RUN php artisan migrate --seed
 
 USER www-data

@@ -22,7 +22,7 @@ class AdminPostController extends Controller {
 
     }
 	
-	public function form($id, Request $request) {
+	public function form(Request $request, $id = 0) {
 		
 		$title = 'Добавить ';
 		$rec = new Post;

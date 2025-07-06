@@ -1,16 +1,16 @@
 @extends('layouts.admin.inside')
 
-@section('title', 'Список записей - Блог')
+@section('title', 'Список - Блог')
 
 @section('content')
 	<section class="content-header">
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1>Список записей</h1>
+					<h1>Блог</h1>
 				</div>
 				<div class="col-sm-6 text-right">
-					<a href="{{ route('admin.posts.form', 0) }}" class="btn btn-primary">Добавить</a> 
+					<a href="{{ route('admin.posts.form') }}" class="btn btn-primary">Добавить запись</a>
 				</div>
 			</div>
 		</div>
@@ -34,11 +34,10 @@
 							<table class="table table-hover text-nowrap">
 								<thead>
 									<tr>
-										<th style="width: 50px;">ID</th>
-										<th>Изображение</th>
-										<th>URL</th>
+										<th>ID</th>
+										<th>Slug</th>
 										<th>Заголовок</th>
-										<th>Дата добавления</th>
+										<th>Дата</th>
 										<th style="text-align: right;">Действия</th>
 									</tr>
 								</thead>
@@ -47,27 +46,22 @@
 										@foreach ($list as $rec)
 											<tr>
 												<td>{{ $rec->id }}</td>
-												<td>
-													<div class="thumb" style="background-image: url({{ Storage::url($rec->image) }});"></div>
-												</td>
 												<td>{{ $rec->slug }}</td>
 												<td>{{ $rec->title }}</td>
-												<td>{{ date('d.m.Y - H:i', strtotime($rec->created_at)) }}</td>
-												<td width="25%" style="text-align: right;">
+												<td>{{ $rec->created_at }}</td>
+												<td style="text-align: right;">
 													<a href="{{ route('admin.posts.form', $rec->id) }}" class="badge badge-info">
-														<i class="fa fa-pen"></i>
-														Редактировать
+														<i class="fa fa-pencil"></i> Редактировать
 													</a>
-													<a href="{{ route('admin.delete', ['post', $rec->id]) }}" class="badge badge-danger">
-														<i class="fa fa-close"></i>
-														Удалить
+													<a href="{{ route('admin.delete', ['post', $rec->id]) }}" class="badge badge-danger" onclick="return confirm('Удалить запись?')">
+														<i class="fa fa-close"></i> Удалить
 													</a>
 												</td>
 											</tr>
 										@endforeach
 									@else
 										<tr>
-											<td colspan="8">Нет информации</td>
+											<td colspan="5">Нет записей</td>
 										</tr>
 									@endif
 								</tbody>

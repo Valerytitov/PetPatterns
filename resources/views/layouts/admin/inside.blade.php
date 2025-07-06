@@ -91,7 +91,7 @@
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="{{ route('admin.posts.form.create') }}" class="nav-link @if (Route::current()->getName() == 'admin.posts.form') active @endif">
+									<a href="{{ route('admin.posts.form') }}" class="nav-link @if (Route::current()->getName() == 'admin.posts.form') active @endif">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Добавить запись</p>
 									</a>
@@ -114,12 +114,18 @@
 									</a>
 								</li>
 								<li class="nav-item">
-									<a href="{{ route('admin.reviews.form.create') }}" class="nav-link @if (Route::current()->getName() == 'admin.reviews.form') active @endif">
+									<a href="{{ route('admin.reviews.form') }}" class="nav-link @if (Route::current()->getName() == 'admin.reviews.form') active @endif">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Добавить отзыв</p>
 									</a>
 								</li>
 							</ul>
+						</li>
+						<li class="nav-item">
+							<a href="{{ route('admin.contacts.edit') }}" class="nav-link @if (Route::current()->getName() == 'admin.contacts.edit') active @endif">
+								<i class="nav-icon fas fa-address-book"></i>
+								<p>Контакты</p>
+							</a>
 						</li>
 					</ul>
 				</nav>
@@ -143,6 +149,7 @@
 	<script src="/admin/plugins/summernote/summernote-bs4.min.js"></script>
 	<script src="/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 	<script src="/admin/js/adminlte.js"></script>
+	@stack('scripts')
 	<script>
 		jQuery(function($) {
 			$(document).ready(function() {

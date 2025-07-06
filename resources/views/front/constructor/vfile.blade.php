@@ -48,12 +48,16 @@
 							</div>
 						@endfor
 					@endif
+					<div class="form_group">
+						<label for="email">Email для получения выкройки:</label>
+						<input id="email" type="email" name="email" value="{{ old('email') }}" class="vfile_prop" required />
+					</div>
 					<div class="vfile_price">
 						<p>Цена: <span>{{ number_format($vfile->price, 2, '.', '') }} &#8381;</span></p>
 					</div>
 					<div class="btns">
 						<button id="doVfile" type="submit" class="btn btn_primary">Построить выкройку</button>
-						<button id="resetVfile" type="button" class="btn btn_gray">Очистить</a>
+						<button id="resetVfile" type="button" class="btn btn_gray">Очистить</button>
 					</div>
 				</form>
 			</div>

@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('vfile_id')->constrained()->onDelete('cascade');
+            $table->enum('status', ['pending', 'paid', 'failed'])->default('pending');
+            $table->string('email');
+            $table->json('pattern_details')->nullable();
+            $table->string('payment_url')->nullable();
+            $table->string('pdf_path')->nullable();
             $table->timestamps();
         });
     }

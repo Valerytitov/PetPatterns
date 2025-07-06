@@ -9,6 +9,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/svg+xml" href="/PetPatterns-photo/logo.svg">
+	<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+	<link rel="manifest" href="/manifest.json">
 </head>
 <body>
 	<header class="header">
@@ -24,10 +30,10 @@
 				<ul class="flex">
 					<li><a href="{{ route('home') }}" @if (Route::current()->getName() == 'home') class="active" @endif>Главная</a></li>
 					<li><a href="#about">Обо мне</a></li>
-					<li><a href="{{ route('page', 'course') }}">Обучение</a></li>
+					<li><a href="https://beriisheu.ru/" target="_blank" rel="noopener">Обучение</a></li>
 					<li><a href="{{ route('shop') }}" @if (Route::current()->getName() == 'shop') class="active" @endif>Магазин</a></li>
 					<li><a href="{{ route('blog') }}" @if (Route::current()->getName() == 'blog') class="active" @endif>Блог</a></li>
-					<li><a href="{{ route('page', 'contacts') }}">Контакты</a></li>
+					<li><a href="{{ route('contacts') }}">Контакты</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -79,10 +85,10 @@
 						<ul class="flex justify_right">
 							<li><a href="{{ route('home') }}" @if (Route::current()->getName() == 'home') class="active" @endif>Главная</a></li>
 							<li><a href="#about">Обо мне</a></li>
-							<li><a href="{{ route('page', 'course') }}">Обучение</a></li>
+							<li><a href="https://beriisheu.ru/" target="_blank" rel="noopener">Обучение</a></li>
 							<li><a href="{{ route('shop') }}" @if (Route::current()->getName() == 'shop') class="active" @endif>Магазин</a></li>
 							<li><a href="{{ route('blog') }}" @if (Route::current()->getName() == 'blog') class="active" @endif>Блог</a></li>
-							<li><a href="{{ route('page', 'contacts') }}">Контакты</a></li>
+							<li><a href="{{ route('contacts') }}">Контакты</a></li>
 						</ul>
 					</nav>
 				</div>
