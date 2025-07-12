@@ -32,9 +32,9 @@
 						<h2><span>{{ $vfile->title }}</span></h2>
 					</div>
 					@if ($props)
-						@for ($a = 0; $a < sizeof($props) - 1; $a++)
-							<div class="cgroup">
-								@foreach ($props[$a] as $prop)
+						<div class="cgroup">
+							@foreach ($props as $group)
+								@foreach ($group as $prop)
 									<div class="form_group">
 										<label for="p_{{ $prop['id'] }}">
 											{{ $prop['prop_title'] }}
@@ -45,8 +45,8 @@
 										<input id="p_{{ $prop['id'] }}" type="text" name="measurements[{{ $prop['prop_key'] }}]" data-default="{{ $prop['default'] ?? '' }}" value="{{ $prop['default'] ?? '' }}" class="vfile_prop" />
 									</div>
 								@endforeach
-							</div>
-						@endfor
+							@endforeach
+						</div>
 					@endif
 					<div class="form_group">
 						<label for="email">Email для получения выкройки:</label>

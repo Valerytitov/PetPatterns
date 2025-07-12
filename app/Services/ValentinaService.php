@@ -118,14 +118,15 @@ class ValentinaService
             'valentina',
             '--platform', 'offscreen',
             '-f', '33',
-            '--tiledPageformat', '4', // <- ИСПРАВЛЕНО: правильный флаг для формата плитки A4
+            '--tiledPageformat', '4', // A4 плитка
             '-m', $vitFilePath,
             '-d', $outputDirectory,
             '-b', $outputFilename,
             '-u',
             '-l', 'cm',
             '-G', '0.25',
-            '-с',
+            '-g', '2',
+            '-c',
             $valFilePath,
         ]);
         $valentinaProcess->setTimeout(600);
