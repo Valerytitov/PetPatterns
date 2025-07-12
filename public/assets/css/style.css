@@ -766,10 +766,14 @@ footer nav li a:hover::after, footer nav li a.active:after {
 }
 
 .form_actions {
-    margin-top: 30px;
-    display: flex;
-    gap: 15px;
-    justify-content: flex-end;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 16px !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+}
+.form_actions .btn {
+    margin: 0 !important;
 }
 
 .alert {
@@ -916,4 +920,156 @@ input:focus, textarea:focus, select:focus, .form_control:focus {
 /* Удаляю конфликтующие стили для .form_control и .input_group */
 .input_group, .input_group_append, .input_group_text {
   all: unset;
+}
+
+/* --- UI от beriisheu.ru для магазина и карточки товара --- */
+
+body {
+    background: #fcfbfe;
+    color: #29114f;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #5f15da;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.btn, .btn.btn_primary {
+    background: linear-gradient(60deg, #cca43f 0%, #ffd521 100%);
+    color: #29114f;
+    border-radius: 18px;
+    font-weight: 700;
+    font-size: 1.15em;
+    padding: 14px 32px;
+    box-shadow: 0 4px 16px rgba(95,21,218,0.10);
+    border: none;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.btn:hover, .btn:focus, .btn.btn_primary:hover {
+    background: linear-gradient(60deg, #5f15da 0%, #a98aff 100%);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(95,21,218,0.18);
+}
+
+.grid_item, .pattern_info, .block_content {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px rgba(95,21,218,0.07);
+    padding: 24px;
+    margin-bottom: 32px;
+    transition: box-shadow 0.2s;
+}
+.grid_item:hover {
+    box-shadow: 0 8px 32px rgba(95,21,218,0.13);
+}
+
+.item_price {
+    color: #cca43f;
+    font-size: 1.35em;
+    font-weight: 700;
+    margin: 12px 0 18px 0;
+}
+
+.pattern_main_img img, .item_img {
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(95,21,218,0.09);
+}
+
+.info_grid {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+.info_img {
+    flex: 0 0 320px;
+    height: 320px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(95,21,218,0.09);
+}
+.info_details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+@media (max-width: 900px) {
+    .info_grid {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .info_img {
+        width: 100%;
+        height: 220px;
+    }
+}
+
+/* Breadcrumbs */
+.breadcrumbs ul {
+    background: none;
+    padding: 0;
+    margin-bottom: 18px;
+}
+.breadcrumbs li {
+    color: #5f15da;
+    font-weight: 500;
+    font-size: 1em;
+}
+.breadcrumbs li.active {
+    color: #cca43f;
+}
+
+.item_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 1;
+}
+.item_info .item_short, .item_info .item_price {
+    flex-grow: 1;
+}
+.item_info .btn {
+    max-width: 180px;
+    width: 100%;
+    margin: 18px 0 0 0;
+    align-self: flex-start;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+.btn, .item_info .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_actions_row {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 16px !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+}
+.form_actions_row .btn {
+    min-width: 180px;
+    white-space: nowrap;
+    margin: 0 !important;
+}
+
+.btns {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 16px !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+}
+.btns .btn {
+    min-width: 180px;
+    white-space: nowrap;
+    margin: 0 !important;
 }
