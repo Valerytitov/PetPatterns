@@ -5,9 +5,6 @@
 		<div class="breadcrumbs">
 			<ul>
 				<li>
-					<a href="{{ route('home') }}" title="Главная">Главная</a>
-				</li>
-				<li>
 					<a href="{{ route('blog') }}" title="Блог">Блог</a>
 				</li>
 				<li class="active">{{ $post->title }}</li>

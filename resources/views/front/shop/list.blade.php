@@ -4,9 +4,6 @@
 	<section class="blog">
 		<div class="breadcrumbs">
 			<ul>
-				<li>
-					<a href="{{ route('home') }}" title="Главная">Главная</a>
-				</li>
 				<li class="active">Магазин</li>
 			</ul>
 		</div>

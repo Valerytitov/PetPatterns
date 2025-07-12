@@ -5,9 +5,6 @@
     <div class="breadcrumbs">
         <ul>
             <li>
-                <a href="{{ route('home') }}" title="Главная">Главная</a>
-            </li>
-            <li>
                 <a href="{{ route('shop') }}" title="Магазин">Магазин</a>
             </li>
             <li>
