@@ -22,7 +22,6 @@ RUN apt-get update \
         libqt5concurrent5 \
         # Утилиты и зависимости для PHP
         poppler-utils \
-        pdfposter \
         git \
         unzip \
         curl \

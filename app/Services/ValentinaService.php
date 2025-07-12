@@ -124,7 +124,8 @@ class ValentinaService
             '-b', $outputFilename,
             '-u',
             '-l', 'cm',
-            '-G', '0.5',
+            '-G', '0.25',
+            '-с',
             $valFilePath,
         ]);
         $valentinaProcess->setTimeout(600);
