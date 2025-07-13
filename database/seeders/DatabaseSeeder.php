@@ -19,6 +19,15 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        // Создание пользователя-админа
+        \App\Models\User::updateOrCreate(
+            [ 'email' => 'galina@beriisheu.ru' ],
+            [
+                'name' => 'Galina',
+                'password' => bcrypt('755456'),
+            ]
+        );
+
         $this->call([
             PropSeeder::class,
             // Добавляй сюда другие сидеры по мере необходимости

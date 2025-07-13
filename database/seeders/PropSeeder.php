@@ -14,14 +14,12 @@ class PropSeeder extends Seeder
     public function run(): void
     {
         $props = [
-            ['prop_key' => '@ДС', 'prop_title' => 'Длина спинки', 'prop_hint' => 'Длина спинки питомца'],
-            ['prop_key' => '@ДИ', 'prop_title' => 'Длина изделия', 'prop_hint' => 'Длина изделия по спинке'],
-            ['prop_key' => '@ОГ', 'prop_title' => 'Обхват груди', 'prop_hint' => 'Обхват груди питомца'],
-            ['prop_key' => '@ОТ', 'prop_title' => 'Обхват талии', 'prop_hint' => 'Обхват талии питомца'],
-            ['prop_key' => '@ОШ', 'prop_title' => 'Обхват шеи', 'prop_hint' => 'Обхват шеи питомца'],
-            ['prop_key' => '@Мпл', 'prop_title' => 'Расстояние между передними лапами', 'prop_hint' => 'Расстояние между передними лапами'],
-            ['prop_key' => '@Дпл', 'prop_title' => 'Длина передних лап', 'prop_hint' => 'Длина передних лап'],
-            ['prop_key' => '@Дзл', 'prop_title' => 'Длина задних лап', 'prop_hint' => 'Длина задних лап'],
+            ['prop_key' => '@ДС', 'prop_title' => 'Длина спинки', 'prop_hint' => 'Длина спинки питомца', 'sort_order' => 1],
+            ['prop_key' => '@ОГ', 'prop_title' => 'Обхват груди', 'prop_hint' => 'Обхват груди питомца', 'sort_order' => 2],
+            ['prop_key' => '@ОТ', 'prop_title' => 'Обхват талии', 'prop_hint' => 'Обхват талии питомца', 'sort_order' => 3],
+            ['prop_key' => '@ОШ', 'prop_title' => 'Обхват шеи', 'prop_hint' => 'Обхват шеи питомца', 'sort_order' => 4],
+            ['prop_key' => '@Дпл', 'prop_title' => 'Длина передних лап', 'prop_hint' => 'Длина передних лап', 'sort_order' => 5],
+            ['prop_key' => '@Дзл', 'prop_title' => 'Длина задних лап', 'prop_hint' => 'Длина задних лап', 'sort_order' => 6],
         ];
 
         foreach ($props as $propData) {

@@ -43,7 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/control/contacts', [App\Http\Controllers\AdminContactController::class, 'update'])->name('admin.contacts.update');
 });
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\ShopController::class, 'index'])->name('home');
 
 Route::get('/payment/test', [App\Http\Controllers\PaymentController::class, 'test'])->name('payment.test');
 Route::match(['get', 'post'], '/payment/result', [App\Http\Controllers\PaymentController::class, 'result'])->name('payment.result');

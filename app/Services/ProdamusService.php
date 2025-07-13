@@ -12,7 +12,7 @@ class ProdamusService
      */
     public function generatePaymentUrl(\App\Models\Order $order)
     {
-        $baseUrl = 'https://beriisheu.payform.ru/';
+        $baseUrl = 'https://payform.ru/g584Aix/';
         $params = [
             'email'    => $order->email,
             'order_id' => $order->id,

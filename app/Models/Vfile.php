@@ -26,7 +26,6 @@ class Vfile extends Model
     // 3. Наш набор параметров по умолчанию, который будет автоматически добавляться к каждой новой выкройке
     private static $defaultParameters = [
         ['name' => 'ДС', 'description' => 'Длина спинки'],
-        ['name' => 'ДИ', 'description' => 'Длина изделия'],
         ['name' => 'ОГ', 'description' => 'Обхват груди'],
         ['name' => 'ОТ', 'description' => 'Обхват талии'],
         ['name' => 'ОШ', 'description' => 'Обхват шеи'],
