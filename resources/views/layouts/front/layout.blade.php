@@ -26,13 +26,25 @@
 					</svg>
 				</a>
 			</div>
-			<nav>
+			<!-- Мобильный бургер -->
+			<button class="burger" id="burgerMenu" aria-label="Открыть меню">
+				<span></span><span></span><span></span>
+			</button>
+			<nav class="mainnav">
 				<ul class="flex">
 					<li><a href="{{ route('shop') }}" @if (Route::current()->getName() == 'shop') class="active" @endif>Магазин</a></li>
 					<li><a href="{{ route('blog') }}" @if (Route::current()->getName() == 'blog') class="active" @endif>Блог</a></li>
 					<li><a href="https://beriisheu.ru/" target="_blank" rel="noopener">Обучение</a></li>
 				</ul>
 			</nav>
+			<!-- Мобильное меню -->
+			<div class="mobile_menu" id="mobileMenu">
+				<ul>
+					<li><a href="{{ route('shop') }}">Магазин</a></li>
+					<li><a href="{{ route('blog') }}">Блог</a></li>
+					<li><a href="https://beriisheu.ru/" target="_blank" rel="noopener">Обучение</a></li>
+				</ul>
+			</div>
 		</div>
 		<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
 			<defs>
@@ -97,5 +109,20 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
 	<script src="/assets/js/app.js"></script>
+	<script>
+// Мобильное меню бургер
+const burger = document.getElementById('burgerMenu');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', function() {
+	mobileMenu.classList.toggle('open');
+	burger.classList.toggle('open');
+});
+document.addEventListener('click', function(e) {
+	if (!burger.contains(e.target) && !mobileMenu.contains(e.target)) {
+		mobileMenu.classList.remove('open');
+		burger.classList.remove('open');
+	}
+});
+</script>
 </body>
 </html>
