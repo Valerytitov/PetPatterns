@@ -736,7 +736,12 @@ footer nav li a:hover::after, footer nav li a.active:after {
 .form_group label {
     display: block;
     margin-bottom: 8px;
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 27px;
+    text-align: center;
+    color: #29114f;
+    font-family: 'Roboto', Arial, sans-serif;
 }
 
 .form_group small {
@@ -1072,4 +1077,282 @@ h1, h2, h3, h4, h5, h6 {
     min-width: 180px;
     white-space: nowrap;
     margin: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .constructor_container, .info_grid, .measurements_grid, .form_actions_row, .btns {
+    flex-direction: column !important;
+    width: 100% !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+  .info_img {
+    width: 100% !important;
+    height: 180px !important;
+    margin-bottom: 12px !important;
+  }
+  .info_details, .measurements_form, .pattern_content, .block_content {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+  .form_group, .form_control, .measurements_grid input, .measurements_grid label {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .btn, .btns .btn, .form_actions_row .btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .form_actions_row, .btns {
+    gap: 10px !important;
+  }
+  .main_img img, .pattern_main_img img {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .mainnav {
+    display: none !important;
+  }
+  .burger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1002;
+    margin: 0 0 0 auto;
+  }
+  .burger span {
+    display: block;
+    width: 28px;
+    height: 4px;
+    margin: 4px 0;
+    background: #5f15da;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+  .burger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .burger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .burger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  .mobile_menu {
+    display: block;
+    position: absolute;
+    top: 80px;
+    right: 16px;
+    left: 16px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(95,21,218,0.13);
+    padding: 24px 0 12px 0;
+    z-index: 1001;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: all 0.25s;
+  }
+  .mobile_menu.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .mobile_menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  .mobile_menu li {
+    margin: 0 0 18px 0;
+  }
+  .mobile_menu li:last-child {
+    margin-bottom: 0;
+  }
+  .mobile_menu a {
+    font-size: 1.3em;
+    color: #5f15da;
+    font-weight: 700;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .mobile_menu a:hover {
+    background: #f3f0ff;
+    color: #cca43f;
+  }
+}
+
+@media (min-width: 901px) {
+  .burger, .mobile_menu { display: none !important; }
+}
+
+/* --- Вертикальный конструктор --- */
+.constructor_block {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 24px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(41,17,79,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.constructor_img {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.constructor_img img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+.constructor_form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.constructor_form .ctitle {
+  margin-bottom: 8px;
+}
+.constructor_form .cgroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.constructor_form .form_group {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+}
+.constructor_form .form_group label {
+  font-size: 17px;
+  line-height: 27px;
+  margin-bottom: 8px;
+  position: static;
+  padding: 0;
+  text-align: center;
+  font-weight: 400;
+  color: #29114f;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+.constructor_form .form_group input {
+  width: 100%;
+  box-sizing: border-box;
+}
+.constructor_form .vfile_price {
+  margin-bottom: 8px;
+}
+.constructor_form .btns {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.constructor_form .btns .btn {
+  flex: 1 1 0;
+  width: 100%;
+}
+@media (max-width: 600px) {
+  .constructor_block {
+    max-width: 100vw;
+    padding: 5px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+/* --- Двухколоночная раскладка конструктора --- */
+.constructor_flex {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+@media (min-width: 1000px) {
+  .constructor_flex {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .constructor_left {
+    flex: 0 0 420px;
+    max-width: 480px;
+    min-width: 340px;
+  }
+  .constructor_right {
+    flex: 1 1 0;
+    max-width: 700px;
+  }
+}
+
+/* --- Двухколоночная карточка конструктора --- */
+.constructor_container {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+.constructor_img_block {
+  flex: 0 0 340px;
+  max-width: 340px;
+}
+.constructor_img_block img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+.constructor_form_block {
+  flex: 1 1 0;
+  min-width: 0;
+}
+@media (max-width: 900px) {
+  .constructor_container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .constructor_img_block,
+  .constructor_form_block {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+@media (min-width: 1000px) {
+  .constructor_container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
+.constructor_form input[type="email"] {
+  border: none !important;
+  box-shadow: none !important;
 }
