@@ -49,7 +49,8 @@ class ValentinaService
         File::deleteDirectory($runDirectory);
         \Log::info('Cleaned up temp directory');
 
-        return $permanentPdfPath;
+        // Возвращаем относительный путь для asset()
+        return 'generated/' . $outputFilename . '.pdf';
     }
 
     private function prepareValFile(Vfile $vfile, string $runDirectory): string
@@ -153,6 +154,6 @@ class ValentinaService
         \Log::info('PDF file found successfully');
 
         \Log::info('runGenerationProcess completed (tiled mode Valentina only)', ['return_path' => $actualPdfPath]);
-        return $actualPdfPath;
+        return $actualPdfPath; // оставляем абсолютный путь для внутреннего копирования
     }
 }
