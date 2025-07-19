@@ -49,7 +49,14 @@ class PropsSeeder extends Seeder
                 'prop_title' => 'Длина задней лапы',
                 'prop_hint' => 'От паха до колена',
                 'sort_order' => 6
+            ],
+            [
+                'prop_key' => '@Мпл',
+                'prop_title' => 'Расстояние между передними лапами',
+                'prop_hint' => 'Расстояние между передними лапами',
+                'sort_order' => 7
             ]
+
         ];
 
         foreach ($props as $prop) {

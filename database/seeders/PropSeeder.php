@@ -20,6 +20,7 @@ class PropSeeder extends Seeder
             ['prop_key' => '@ОШ', 'prop_title' => 'Обхват шеи', 'prop_hint' => 'Обхват шеи питомца', 'sort_order' => 4],
             ['prop_key' => '@Дпл', 'prop_title' => 'Длина передних лап', 'prop_hint' => 'Длина передних лап', 'sort_order' => 5],
             ['prop_key' => '@Дзл', 'prop_title' => 'Длина задних лап', 'prop_hint' => 'Длина задних лап', 'sort_order' => 6],
+            ['prop_key' => '@Мпл', 'prop_title' => 'Расстояние между передними лапами', 'prop_hint' => 'Расстояние между передними лапами', 'sort_order' => 7],
         ];
 
         foreach ($props as $propData) {
