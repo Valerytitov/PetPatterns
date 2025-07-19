@@ -32,11 +32,18 @@ class ProdamusController extends Controller
             return response('Не указан или некорректен email', 400);
         }
 
+        // --- ДОБАВЛЕНО: Получаем мерки ---
+        $measurements = $request->input('measurements', []);
+        if (empty($measurements)) {
+            return response('Не переданы мерки', 400);
+        }
+
         // Создаём заказ
         $order = new \App\Models\Order();
         $order->vfile_id = $vfile->id;
         $order->status = 'pending';
         $order->email = $email;
+        $order->pattern_details = $measurements;
         $order->save();
 
         // Генерируем ссылку на оплату
